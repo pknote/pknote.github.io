@@ -2,7 +2,7 @@
 window.Config = {
 
   // 站点名
-  SiteName: '网站监控',
+  SiteName: '网站监控 - 胖氪笔记',
 
   // 站点链接
   SiteUrl: 'https://nav.pknote.top/uptime.html',
