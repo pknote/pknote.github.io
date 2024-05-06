@@ -1,1 +1,1 @@
-pknote.github.io
+公众号：胖氪笔记
