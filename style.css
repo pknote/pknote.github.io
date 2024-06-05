@@ -1,0 +1,34 @@
+body{background: #fafbfc;font-family:LXGW WenKai;}
+@media (min-width: 768px) {body {background-image: url(https://img.pknote.top/img/bg.svg);background-size: cover;background-repeat: no-repeat;background-attachment: fixed;}}
+.bg1{background: #F95B5A;}.bg2{background: #8B8EF0;}.bg3{background: #00B1FD;}.bg4{background: #65D020;}.bg5{background: #23D186;}.bg6{background: #FFC816;}
+.c1{color: #F95B5A;}.c2{color: #8B8EF0;}.c3{color: #00B1FD;}.c4{color: #65D020;}.c5{color: #23D186;}.c6{color: #FFC816;}
+.b1{border: 1px dashed #F95B5A;}.b2{border: 1px dashed #8B8EF0;}.b3{border: 1px dashed #00B1FD;}.b4{border: 1px dashed #65D020;}.b5{border: 1px dashed #23D186;}.b6{border: 1px dashed #FFC816;}
+.cklogo{margin-top: 30px;text-align: center;}
+.cklogo img{width: 80px;-webkit-transition:0.8s;-webkit-transition:-webkit-transform 0.8s ease;transition:transform 0.8s ease;-moz-transition:-moz-transform 0.8s ease;}
+.cklogo img:hover{transform:rotateZ(270deg);-webkit-transform:rotateZ(270deg);-moz-transform:rotateZ(270deg);}
+.cknor{margin-top: 30px;background: #fafbfc;border-radius: 8px;border: 1px solid #e9e9e9;}
+.cklist{margin: 10px;padding-left: 10px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.cklist img{width: 18px;margin-top: -4px;margin-right: 4px;-webkit-transition:0.8s;-webkit-transition:-webkit-transform 0.8s ease;transition:transform 0.8s ease;-moz-transition:-moz-transform 0.8s ease;}
+.cklist img:hover{transform:rotateZ(300deg);-webkit-transform:rotateZ(300deg);-moz-transform:rotateZ(300deg);}
+.cknor a{width: 100%;color: #666;font-size: 16px;line-height: 35px;text-decoration: none;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.cknor a:hover{color: red;}
+.ckinfo{margin: 10px;color: #666;line-height: 35px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.cknavs{margin-top: 20px;}
+.cknavs a{width: 100%;height: 40px;color: #fff;margin-top: 10px;margin-bottom: 10px;display: inline-block;padding: 5px 12px;font-size: 20px;font-weight: normal;line-height: 1.42857143;text-align: center;white-space: nowrap;vertical-align: middle;touch-action: manipulation;-ms-touch-action: manipulation;cursor: pointer;background-image: none;border-radius: 20px;text-decoration: none;}
+.cknavs a:hover{font-size: 22px;padding-top: 2px;}
+.ckcard{border: 1px solid #e9e9e9;margin-top: 20px;background: #fefefe;border-radius: 8px;overflow: hidden;padding: 0 10px 15px 10px;}
+.ckcard a{color: #333;text-decoration: none;}
+.cardhd{width: 100%;border-bottom: 1px solid #e9e9e9;font-weight: 600;line-height: 40px;padding-left: 20px;font-size:20px;}
+.card-title{border-radius: 6px;padding: 8px 10px 0 10px;margin-top: 10px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.tit{padding-bottom: 3px;font-size: 16px;border-bottom: 1px solid #ccc;}
+.card-title p{font-size: 10px;color: #999;margin-top: 3px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.card-title:hover{background: #fff;box-shadow: 3px 3px 20px #ccc;}
+.ckft{border: 1px solid #e9e9e9;background: #fafbfc;line-height: 20px;margin-top: 20px;margin-bottom: 20px;padding: 10px;border-radius: 8px;text-align: center;}
+.ckft a{color: #333;text-decoration: none;}
+#landlord{user-select: none;top: 0;left: 0;width: 100%;z-index: 10000;font-size: 0;transition: all .3s ease;}
+.message {opacity: 0;max-width: 380px;height: auto;margin: auto;padding:5px 10px 5px 15px;color:#fff;top: 30px;left: 53%;text-align: center;border-radius: 20px;background:#00B1FD;font-size: 13px;font-weight: 400;text-overflow: ellipsis;text-transform: uppercase;overflow: hidden;position: absolute;animation-delay: 5s;animation-duration: 50s;animation-iteration-count: infinite;animation-timing-function: ease;}
+@media (max-width: 768px) {#landlord {display: none;}}
+.ckpost{border: 1px solid #e9e9e9;border-radius: 8px;background: #fefefe;margin-top: 20px;margin-bottom: 10px;}
+.postinfo{-ms-text-align: center;text-align: center;line-height: 35px;margin: 10px;font-size: 16px;}
+.postinfo a{color: #00B1FD;}.postinfo a:hover{color: red;}
+
