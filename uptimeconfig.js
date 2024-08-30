@@ -5,7 +5,7 @@ window.Config = {
   SiteName: '网站监控',
 
   // 站点链接
-  SiteUrl: 'https://nav.pknote.top/uptime.html',
+  SiteUrl: 'https://pknote.top/uptime.html',
 
   // UptimeRobot Api Keys
   // 支持 Monitor-Specific 和 Read-Only 两只 Api Key
@@ -29,7 +29,7 @@ window.Config = {
     },
     {
       text: '导航',
-      url: 'https://nav.pknote.top/'
+      url: 'https://pknote.top/'
     },
     {
       text: '统计',
