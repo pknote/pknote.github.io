@@ -3,9 +3,9 @@
 layout: home
 
 hero:
-  name: "My Awesome Project"
-  text: "A VitePress Site"
-  tagline: My great project tagline
+  name: "胖氪笔记"
+  text: "Code Write and Share."
+  tagline: 专注互联网精选资源收藏与分享！
   actions:
     - theme: brand
       text: Markdown Examples
