@@ -6,11 +6,13 @@ export default defineConfig({
   description: "专注互联网精选资源收藏与分享！",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+    logo: '/favicon.ico'
+
     nav: [
       { text: '首页', link: '/' },
       { text: '系统', link: '/markdown-examples' },
       { text: '软件', link: '/markdown-examples' },
-      { text: '工具', link: '/markdown-examples' },
+      { text: '工具', link: '/api-examples' },
       { text: '笔记', link: '/markdown-examples' }
     ],
 
