@@ -6,8 +6,6 @@ export default defineConfig({
   description: "专注互联网精选资源收藏与分享！",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    logo: '/favicon.ico'
-
     nav: [
       { text: '首页', link: '/' },
       { text: '系统', link: '/markdown-examples' },
