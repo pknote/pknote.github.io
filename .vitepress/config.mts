@@ -2,13 +2,16 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "My Awesome Project",
-  description: "A VitePress Site",
+  title: "胖氪笔记",
+  description: "Code Write and Share.",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: '首页', link: '/' },
+      { text: '系统', link: '/markdown-examples' },
+      { text: '软件', link: '/markdown-examples' },
+      { text: '工具', link: '/api-examples' },
+      { text: '笔记', link: '/markdown-examples' }
     ],
 
     sidebar: [
@@ -23,6 +26,7 @@ export default defineConfig({
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-    ]
+    ],
+    logo :'https://img.pknote.top/img/pknav.png'
   }
 })
