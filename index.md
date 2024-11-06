@@ -1,11 +1,16 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
+home: true
+title: 测试标题
+titleTemplate: Hi,测试
+editLink: true
+lastUpdated: true
 
 hero:
-  name: "My Awesome Project"
-  text: "A VitePress Site"
-  tagline: My great project tagline
+  name: "My Awesome Project1"
+  text: "A VitePress Site2"
+  tagline: My great project tagline3
   actions:
     - theme: brand
       text: Markdown Examples
