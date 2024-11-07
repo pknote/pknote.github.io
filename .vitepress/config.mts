@@ -4,8 +4,13 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   lang: 'zh-CN', //语言，可选 en-US
   title: "胖氪笔记",
+  cleanUrls:true, //开启纯净链接
   description: "Code Write and Share.",
   srcDir:'src',
+  // 站点地图
+  sitemap: {
+    hostname: 'https://pknote.top',
+  },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -56,6 +61,10 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
     ],
-    logo :'https://img.pknote.top/img/pknav.png'
+    logo :'https://img.pknote.top/img/pknav.png',
+    //本地搜索
+    search: { 
+      provider: 'local'
+    }, 
   }
 })
