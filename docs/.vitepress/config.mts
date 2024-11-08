@@ -9,6 +9,9 @@ export default defineConfig({
   head: [
     ['link',{ rel: 'icon', href: '/favicon.ico'}],
   ], //fav图标
+  sitemap: {
+    hostname: 'https://windowsplus.cn',
+  },// 站点地图
   themeConfig: {
     logo: '/logo1.png',
     // https://vitepress.dev/reference/default-theme-config
