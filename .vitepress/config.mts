@@ -8,6 +8,9 @@ export default defineConfig({
   description: "Code Write and Share.",
   srcDir:'src',// 站点地图
   base: '/', //网站部署的路径，默认根目录
+  head: [
+    ['link',{ rel: 'icon', href: '/public/favicon.ico'}], //部署到vitepress仓库
+  ],
   sitemap: {
     hostname: 'https://pknote.top',
   },
