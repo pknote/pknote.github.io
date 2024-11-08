@@ -15,8 +15,11 @@ hero:
       link: /api-examples
 
 features:
-  - title: Feature A
+  - icon: 👌
+    title: Feature A
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    link: https://pknote.top
+    linkText: 胖氪笔记
   - title: Feature B
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
   - title: Feature C

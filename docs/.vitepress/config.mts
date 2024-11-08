@@ -15,6 +15,14 @@ export default defineConfig({
     hostname: 'https://windowsplus.cn',
   },// 站点地图
 
+  //markdown配置
+  markdown: {
+    image: {
+      // 开启图片懒加载
+      lazyLoading: true
+    },
+  },
+
   themeConfig: {
     logo: '/logo1.png',
 
@@ -38,7 +46,8 @@ export default defineConfig({
           text: '系统',
           items: [
             { text: '系统', link: '/os/' },
-            { text: '示例', link: '/api-examples' }
+            { text: '啦啦啦', link: '/os/lalala' },
+            { text: '嘿嘿嘿', link: '/os/heiheihei' }
           ],
         },
       ],
@@ -52,8 +61,18 @@ export default defineConfig({
         },
       ],
     },
-    
+
+    sidebarMenuLabel:'目录',
     returnToTopLabel:'返回顶部', 
+    outline: { 
+      level: [2,4], // 显示2-4级标题
+      // level: 'deep', // 显示2-6级标题
+      label: '当前页大纲' // 文字显示
+    },
+    docFooter: { 
+      prev: '上一页', 
+      next: '下一页', 
+    }, 
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
