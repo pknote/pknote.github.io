@@ -5,7 +5,7 @@ export default defineConfig({
   lang: 'zh-CN', //语言，可选 en-US
   title: "胖氪笔记",
   description: "Code Write and Share.",
-  cleanUrls: true, //开启纯净链接
+  cleanUrls: true, //开启纯净链接1
   srcDir:'src',// 站点地图
   base: '/', //网站部署的路径，默认根目录
   head: [
