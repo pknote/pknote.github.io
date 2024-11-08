@@ -7,7 +7,7 @@ export default defineConfig({
   description: "胖氪笔记小站！",
   cleanUrls:true, //开启纯净链接
   head: [
-    ['link',{ rel: 'icon', href: '/logo.png'}],
+    ['link',{ rel: 'icon', href: '/favicon.ico'}],
   ], //fav图标
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
