@@ -6,8 +6,8 @@ export default defineConfig({
   title: "胖氪笔记",
   cleanUrls:true, //开启纯净链接
   description: "Code Write and Share.",
-  srcDir:'src',
-  // 站点地图
+  srcDir:'src',// 站点地图
+  base: '/', //网站部署的路径，默认根目录
   sitemap: {
     hostname: 'https://pknote.top',
   },
