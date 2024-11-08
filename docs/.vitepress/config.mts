@@ -6,14 +6,26 @@ export default defineConfig({
   title: "胖氪笔记",
   description: "胖氪笔记小站！",
   cleanUrls:true, //开启纯净链接
+  
   head: [
     ['link',{ rel: 'icon', href: '/favicon.ico'}],
   ], //fav图标
+
   sitemap: {
     hostname: 'https://windowsplus.cn',
   },// 站点地图
+
   themeConfig: {
     logo: '/logo1.png',
+
+    search: { 
+      provider: 'local'
+    }, //本地搜索
+
+    footer: { 
+      copyright: 'Copyright © 2015-2024 胖氪笔记', 
+    },//页脚
+
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '首页', link: '/' },
