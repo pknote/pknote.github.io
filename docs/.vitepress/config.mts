@@ -6,7 +6,7 @@ export default defineConfig({
   title: "胖氪笔记",
   description: "胖氪笔记小站！",
   cleanUrls:true, //开启纯净链接
-  
+
   head: [
     ['link',{ rel: 'icon', href: '/favicon.ico'}],
   ], //fav图标
@@ -32,15 +32,28 @@ export default defineConfig({
       { text: '系统', link: '/os' }
     ],
 
-    sidebar: [
-      {
-        text: '系统',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
-      }
-    ],
+    sidebar: {
+      '/os/': [
+       {
+          text: '系统',
+          items: [
+            { text: '系统', link: '/os/' },
+            { text: '示例', link: '/api-examples' }
+          ],
+        },
+      ],
+      '/ds/': [
+       {
+          text: '系统',
+          items: [
+            { text: '系统', link: '/os/' },
+            { text: '示例', link: '/api-examples' }
+          ],
+        },
+      ],
+    },
+    
+    returnToTopLabel:'返回顶部', 
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
