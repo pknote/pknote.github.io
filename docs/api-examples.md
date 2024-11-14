@@ -1,6 +1,5 @@
 ---
 outline: deep
-aside: left
 ---
 
 # Runtime API Examples
