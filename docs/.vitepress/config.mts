@@ -6,6 +6,7 @@ export default defineConfig({
   title: "My Awesome Project",
   description: "A VitePress Site",
   base: '/', //网站部署到github的vitepress这个仓库里
+  cleanUrls:true, //开启纯净链接无html
 
   //markdown配置
   markdown: {
