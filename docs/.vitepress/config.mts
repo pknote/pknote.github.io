@@ -55,7 +55,8 @@ export default defineConfig({
         ],
       },
       { text: '示例', link: '/markdown-examples' },
-      { text: '更新日志', link: '/changelog' }
+      { text: '更新日志', link: '/changelog' },
+      { text: '测试', link: '/test' }
     ],
 
     sidebar: [
@@ -70,6 +71,35 @@ export default defineConfig({
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-    ]
+    ],
+
+    /* 右侧大纲配置 */
+    outline: {
+      level: 'deep',
+      label: '目录',
+    },
+
+    footer: {
+      message: '如有转载或 CV 的请标注本站原文地址',
+      copyright: 'Copyright © 2015-2024 胖氪笔记',
+    },
+
+    docFooter: {
+      prev: '上一篇',
+      next: '下一篇',
+    },
+
+    returnToTopLabel: '回到顶部',
+    sidebarMenuLabel: '菜单',
+
+    /* 生成站点地图 */
+    sitemap: {
+      hostname: 'https://notes.fe-mm.com/',
+    },
+
+    //本地搜索
+    search: { 
+      provider: 'local'
+    }, 
   }
 })
