@@ -28,3 +28,9 @@ features:
 ```
 irm https://get.activated.win | iex
 ```
+
+### [微零微] 命令提示符(管理员)：
+
+```
+slmgr /skms kms.jihuowin.com && slmgr /ato
+```

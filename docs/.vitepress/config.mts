@@ -3,8 +3,8 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   lang: 'zh-CN',
-  title: "My Awesome Project",
-  description: "A VitePress Site",
+  title: "胖氪笔记",
+  description: "专注互联网精选资源收藏与分享！",
   base: '/', //网站部署到github的vitepress这个仓库里
   cleanUrls:true, //开启纯净链接无html
 
