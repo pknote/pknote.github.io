@@ -1,7 +1,5 @@
 ---
 sidebar: false
-outline: false
-editLink: false
 prev: false
 next: false
 ---
@@ -12,7 +10,7 @@ next: false
 # 更新说明
 
 
-> [!IMPORTANT] 关于更新
+> [!INFO] 关于更新
 > 
 > 大概率不会再添加新的内容了，作为文档非常够用了！
 > 
