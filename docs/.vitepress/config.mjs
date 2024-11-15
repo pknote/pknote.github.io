@@ -3,8 +3,8 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   lang: 'zh-CN',
-  title: "My Awesome Project",
-  description: "A VitePress Site",
+  title: "胖氪笔记",
+  description: "胖氪笔记教程",
   base: '/',
 
   //markdown配置
