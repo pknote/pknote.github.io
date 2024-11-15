@@ -8,19 +8,19 @@ hero:
   tagline: 专注互联网精选资源收藏与分享！
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: 开始阅读
+      link: /changelog
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: 测试按钮
+      link: /test
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Windows
+    details: Windows系统的安装与测评
+  - title: Office
+    details: Office安装与测评
+  - title: Tools
+    details: 分享常用的软件与工具
 ---
 
 ### [MAS] Windows PowerShell：
