@@ -31,8 +31,31 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: '首页', link: '/' },
+      {
+        text: '🍉指南',
+        items: [
+          {
+            // 分组标题1
+            text: '介绍',
+            items: [
+              { text: '前言', link: '/preface' },
+            ],
+          },
+          {
+            // 分组标题2
+            text: '基础设置',
+            items: [
+              { text: '快速上手', link: '/getting-started' },
+              { text: '配置', link: '/configuration' },
+              { text: '页面', link: '/page' },
+              { text: 'Frontmatter', link: '/frontmatter' },
+            ],
+          },
+        ],
+      },
+      { text: '示例', link: '/markdown-examples' },
+      { text: '更新日志', link: '/changelog' }
     ],
 
     sidebar: [
