@@ -39,30 +39,30 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       {
-        text: '🍉指南',
+        text: '💻系统下载',
         items: [
           {
             // 分组标题1
-            text: '介绍',
+            text: 'Windows 11',
             items: [
-              { text: '前言', link: '/' },
+              { text: 'LTSC', link: '/winos/windows11/ltsc' },
+              { text: '24H2', link: '/winos/windows11/24h2' },
+              { text: '23H2', link: '/winos/windows11/23h2' },
             ],
           },
           {
             // 分组标题2
-            text: '基础设置',
+            text: 'Windows 10',
             items: [
-              { text: '快速上手', link: '/' },
-              { text: '配置', link: '/' },
-              { text: '页面', link: '/' },
-              { text: 'Frontmatter', link: '/' },
+              { text: 'LTSC', link: '/' },
+              { text: '22H2', link: '/' },
             ],
           },
         ],
       },
-      { text: '示例', link: '/markdown-examples' },
-      { text: '更新日志', link: '/changelog' },
-      { text: '测试', link: '/test' }
+      { text: '安装笔记', link: '/markdown-examples' },
+      { text: '开源周刊', link: '/changelog' },
+      { text: '更新日志', link: '/changelog' }
     ],
 
     sidebar: [
