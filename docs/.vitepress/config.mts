@@ -45,9 +45,9 @@ export default defineConfig({
             // 分组标题1
             text: 'Windows 11',
             items: [
-              { text: 'LTSC', link: '/winos/windows11/ltsc' },
-              { text: '24H2', link: '/winos/windows11/24h2' },
-              { text: '23H2', link: '/winos/windows11/23h2' },
+              { text: 'LTSC', link: '/winos/win11/ltsc' },
+              { text: '24H2', link: '/winos/win11/24h2' },
+              { text: '23H2', link: '/winos/win11/23h2' },
             ],
           },
           {
