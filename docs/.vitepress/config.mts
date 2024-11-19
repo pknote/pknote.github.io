@@ -7,6 +7,10 @@ export default defineConfig({
   description: "专注互联网精选资源收藏与分享！",
   base: '/', //网站部署到github的vitepress这个仓库里
   cleanUrls:true, //开启纯净链接无html
+  //fav图标
+  head: [
+    ['link',{ rel: 'icon', href: '/favicon.ico'}],
+  ],
 
   //markdown配置
   markdown: {
@@ -30,6 +34,8 @@ export default defineConfig({
 
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+    //左上角logo
+    logo: '/logo.png',
     nav: [
       { text: '首页', link: '/' },
       {
