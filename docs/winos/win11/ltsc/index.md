@@ -1,6 +1,6 @@
 # Windows 11 LTSC 2024
 
-### IoT Enterprise LTSC 2024
+## IoT Enterprise LTSC 2024
 
 **Build - 26100.1742**
 
@@ -15,7 +15,7 @@
 
 
 
-### Enterprise LTSC 2024
+## Enterprise LTSC 2024
 
 **Build - 26100.1742**
 
