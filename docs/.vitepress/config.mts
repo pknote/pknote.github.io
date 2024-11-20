@@ -100,7 +100,7 @@ export default defineConfig({
 
     /* 生成站点地图 */
     sitemap: {
-      hostname: 'https://notes.fe-mm.com/',
+      hostname: 'https://windowsplus.cn',
     },
 
     //本地搜索
