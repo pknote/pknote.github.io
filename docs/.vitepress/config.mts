@@ -60,8 +60,8 @@ export default defineConfig({
           },
         ],
       },
-      { text: '安装笔记', link: '/markdown-examples' },
-      { text: '开源周刊', link: '/changelog' },
+      { text: '安装笔记', link: '/notes' },
+      { text: '创意周刊', link: '/weekly' },
       { text: '更新日志', link: '/changelog' }
     ],
 
