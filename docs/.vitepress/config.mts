@@ -96,11 +96,6 @@ export default defineConfig({
     returnToTopLabel: '回到顶部',
     sidebarMenuLabel: '菜单',
 
-    /* 生成站点地图 */
-    sitemap: {
-      hostname: 'https://windowsplus.cn',
-    },
-
     //本地搜索
     search: { 
       provider: 'local'
