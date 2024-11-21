@@ -43,16 +43,15 @@ export default defineConfig({
         items: [
           {
             // 分组标题1
-            text: 'Windows 11',
+            text: '前言',
             items: [
-              { text: 'LTSC', link: '/os/win11/ltsc' },
-              { text: '24H2', link: '/os/win11/24h2' },
-              { text: '23H2', link: '/os/win11/23h2' },
+              { text: '系统下载', link: '/os/win11/ltsc' },
+              { text: '软件工具', link: '/os/win11/24h2' },
             ],
           },
           {
             // 分组标题2
-            text: 'Windows 10',
+            text: '安装笔记',
             items: [
               { text: 'LTSC', link: '/' },
               { text: '22H2', link: '/' },
