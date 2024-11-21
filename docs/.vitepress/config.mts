@@ -39,7 +39,7 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       {
-        text: '💻系统下载',
+        text: '💻笔记',
         items: [
           {
             // 分组标题1
@@ -60,9 +60,8 @@ export default defineConfig({
           },
         ],
       },
-      { text: '安装笔记', link: '/notes' },
-      { text: '创意周刊', link: '/weekly' },
-      { text: '更新日志', link: '/changelog' }
+      { text: '周刊', link: '/weekly' },
+      { text: '日志', link: '/changelog' }
     ],
 
     sidebar: [
