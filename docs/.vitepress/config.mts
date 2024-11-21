@@ -39,7 +39,7 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       {
-        text: '💻笔记',
+        text: '💻装机笔记',
         items: [
           {
             // 分组标题1
@@ -51,7 +51,7 @@ export default defineConfig({
           },
           {
             // 分组标题2
-            text: '安装笔记',
+            text: '笔记',
             items: [
               { text: 'LTSC', link: '/' },
               { text: '22H2', link: '/' },
@@ -59,7 +59,7 @@ export default defineConfig({
           },
         ],
       },
-      { text: '周刊', link: '/weekly' },
+      { text: '创意周刊', link: '/weekly' },
       { text: '日志', link: '/changelog' }
     ],
 
