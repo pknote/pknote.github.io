@@ -37,41 +37,70 @@ export default defineConfig({
     //左上角logo
     logo: '/logo.png',
     nav: [
-      { text: '首页', link: '/' },
+      { text: '🏠首页', link: '/' },
+      { text: '💻安装笔记', link: '/notes' },
       {
-        text: '💻装机笔记',
+        text: '🛠️软件工具',
         items: [
           {
             // 分组标题1
-            text: '前言',
+            text: '常用软件',
             items: [
-              { text: '系统下载', link: '/os/win11/ltsc' },
-              { text: '软件工具', link: '/os/win11/24h2' },
+              { text: '装机必备', link: '/tool/' },
+              { text: '无损音乐', link: '/os/win11/24h2' },
             ],
           },
           {
             // 分组标题2
-            text: '笔记',
+            text: '软件工具',
             items: [
-              { text: 'LTSC', link: '/' },
-              { text: '22H2', link: '/' },
+              { text: 'PDF工具', link: '/' },
+              { text: '在线图床', link: '/' },
             ],
           },
         ],
       },
-      { text: '创意周刊', link: '/weekly' },
-      { text: '日志', link: '/changelog' }
+      { text: '📚开源周刊', link: '/weekly' },
+      { text: '📑日志', link: '/changelog' }
     ],
 
-    sidebar: [
-      {
-        text: 'Examples',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
-      }
-    ],
+    sidebar: {
+      // 当用户位于 `guide` 目录时，会显示此侧边栏
+      '/notes/': [
+        {
+          text: '安装笔记',
+          items: [
+            { text: 'Index', link: '/guide/' },
+            { text: 'One', link: '/guide/one' },
+            { text: 'Two', link: '/guide/two' }
+          ]
+        }
+      ],
+
+      // 当用户位于 `config` 目录时，会显示此侧边栏
+      '/tools/': [
+        {
+          text: '软件工具',
+          items: [
+            { text: '工具', link: '/config/' },
+            { text: 'Three', link: '/config/three' },
+            { text: 'Four', link: '/config/four' }
+          ]
+        }
+      ],
+
+      // 当用户位于 `config` 目录时，会显示此侧边栏
+      '/weekly/': [
+        {
+          text: '开源周刊',
+          items: [
+            { text: '周刊', link: '/config/' },
+            { text: 'Three', link: '/config/three' },
+            { text: 'Four', link: '/config/four' }
+          ]
+        }
+      ]
+    },
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
