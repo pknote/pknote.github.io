@@ -38,29 +38,9 @@ export default defineConfig({
     logo: '/logo.png',
     nav: [
       { text: '🏠首页', link: '/' },
-      { text: '💻安装笔记', link: '/notes' },
-      {
-        text: '🛠️软件工具',
-        items: [
-          {
-            // 分组标题1
-            text: '常用软件',
-            items: [
-              { text: '装机必备', link: '/tool/' },
-              { text: '无损音乐', link: '/os/win11/24h2' },
-            ],
-          },
-          {
-            // 分组标题2
-            text: '软件工具',
-            items: [
-              { text: 'PDF工具', link: '/' },
-              { text: '在线图床', link: '/' },
-            ],
-          },
-        ],
-      },
-      { text: '📚开源周刊', link: '/weekly' },
+      { text: '💻笔记', link: '/notes' },
+      { text: '🛠️工具', link: '/tools' },
+      { text: '📚周刊', link: '/weekly' },
       { text: '📑日志', link: '/changelog' }
     ],
 
