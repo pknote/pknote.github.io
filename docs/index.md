@@ -6,6 +6,9 @@ hero:
   name: "胖氪笔记"
   text: "Code Write and Share."
   tagline: 专注互联网精选资源收藏与分享！
+  image:
+    src: /favicon.png
+    alt: 胖氪笔记
   actions:
     - theme: brand
       text: 开始阅读
