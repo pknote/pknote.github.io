@@ -15,7 +15,7 @@ features:
     link: /notes
     linkText: View
   - icon: 🛠️
-    title: Off软件工具ice
+    title: 软件工具
     details: 分享个人常用的精品软件
     link: /tools
     linkText: View
