@@ -62,9 +62,9 @@ export default defineConfig({
         {
           text: '软件工具',
           items: [
-            { text: '工具', link: '/config/' },
-            { text: 'Three', link: '/config/three' },
-            { text: 'Four', link: '/config/four' }
+            { text: '装机必备', link: '/tools/Essential-for-installation' },
+            { text: 'Three', link: '/tools/three' },
+            { text: 'Four', link: '/tools/four' }
           ]
         }
       ],
@@ -72,11 +72,11 @@ export default defineConfig({
       // 当用户位于 `config` 目录时，会显示此侧边栏
       '/weekly/': [
         {
-          text: '开源周刊',
+          text: '2024',
           items: [
             { text: '周刊', link: '/config/' },
             { text: 'Three', link: '/config/three' },
-            { text: 'Four', link: '/config/four' }
+            { text: '000期--新的开始', link: '/weekly/2024/000' }
           ]
         }
       ]
