@@ -18,7 +18,8 @@ hero:
       link: /test
 
 features:
-  - title: Windows
+  - icon: 💻
+    title: 装机指南
     details: Windows系统的安装与测评
   - title: Office
     details: Office安装与测评

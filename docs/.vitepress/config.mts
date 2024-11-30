@@ -38,7 +38,7 @@ export default defineConfig({
     logo: '/logo.png',
     nav: [
       { text: '🏠首页', link: '/' },
-      { text: '💻笔记', link: '/notes' },
+      { text: '💻指南', link: '/notes' },
       { text: '🛠️工具', link: '/tools' },
       { text: '📚周刊', link: '/weekly' },
       { text: '📑日志', link: '/changelog' }
