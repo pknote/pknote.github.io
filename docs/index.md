@@ -6,25 +6,24 @@ hero:
   name: "胖氪笔记"
   text: "Code Write and Share."
   tagline: 专注互联网精选资源收藏与分享！
-  image:
-    src: /favicon.png
-    alt: 胖氪笔记
-  actions:
-    - theme: brand
-      text: 开始阅读
-      link: /changelog
-    - theme: alt
-      text: 测试按钮
-      link: /test
+
 
 features:
   - icon: 💻
     title: 装机指南
-    details: Windows系统的安装与测评
-  - title: Office
-    details: Office安装与测评
-  - title: Tools
-    details: 分享常用的软件与工具
+    details: Windows系统、软件的安装与测评
+    link: /notes
+    linkText: View
+  - icon: 🛠️
+    title: Off软件工具ice
+    details: 分享个人常用的精品软件
+    link: /tools
+    linkText: View
+  - icon: 📚
+    title: 开源周刊
+    details: 分享GitHub热门开源项目及小工具
+    link: /weekly
+    linkText: View
 ---
 
 ### [MAS] Windows PowerShell：
