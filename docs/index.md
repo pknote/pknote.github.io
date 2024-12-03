@@ -32,6 +32,10 @@ features:
 irm https://get.activated.win | iex
 ```
 
+```
+irm https://massgrave.dev/get | iex
+```
+
 ### [微零微] 命令提示符(管理员)：
 
 ```
