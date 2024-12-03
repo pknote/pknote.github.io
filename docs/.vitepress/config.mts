@@ -48,7 +48,15 @@ export default defineConfig({
       // 当用户位于 `guide` 目录时，会显示此侧边栏
       '/notes/': [
         {
-          text: '安装笔记',
+          text: '装机指南',
+          items: [
+            { text: 'Index', link: '/guide/' },
+            { text: 'One', link: '/guide/one' },
+            { text: 'Two', link: '/guide/two' }
+          ]
+        },
+        {
+          text: 'IT笔记',
           items: [
             { text: 'Index', link: '/guide/' },
             { text: 'One', link: '/guide/one' },
