@@ -12,7 +12,7 @@
 
 ## 火狐浏览器
 
-官网地址：
+官网下载：https://www.firefox.com.cn/download/thanks/
 
 离线版下载：https://download-redirect.firefox.com.cn/?product=firefox-latest-ssl&os=win64&lang=zh-CN
 
