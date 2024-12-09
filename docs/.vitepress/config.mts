@@ -50,13 +50,25 @@ export default defineConfig({
         {
           text: '装机指南',
           items: [
+            { text: '系统下载', link: '/notes/' },
+            { text: '装机工具', link: '/notes/one' },
+            { text: 'BIOS设置', link: '/notes/two' },
+            { text: '系统安装', link: '/notes/two' },
+            { text: '系统鸡活', link: '/notes/two' },
+            { text: '系统优化', link: '/notes/two' },
+            { text: '软件安装', link: '/notes/two' }
+          ]
+        },
+        {
+          text: '系统测评',
+          items: [
             { text: 'Index', link: '/guide/' },
             { text: 'One', link: '/guide/one' },
             { text: 'Two', link: '/guide/two' }
           ]
         },
         {
-          text: 'IT笔记',
+          text: '学习笔记',
           items: [
             { text: 'Index', link: '/guide/' },
             { text: 'One', link: '/guide/one' },
@@ -70,9 +82,11 @@ export default defineConfig({
         {
           text: '软件工具',
           items: [
-            { text: '装机必备', link: '/tools/Essential-for-installation' },
-            { text: 'Three', link: '/tools/three' },
-            { text: 'Four', link: '/tools/four' }
+            { text: 'Office', link: '/tools/office' },
+            { text: 'WPS', link: '/tools/wps' },
+            { text: 'PDF', link: '/tools/pdf' },
+            { text: '浏览器', link: '/tools/browser' },
+            { text: '远程控制', link: '/tools/remote-control' }
           ]
         }
       ],
@@ -82,8 +96,7 @@ export default defineConfig({
         {
           text: '2024',
           items: [
-            { text: '周刊', link: '/config/' },
-            { text: 'Three', link: '/config/three' },
+            { text: '001期--新的开始', link: '/weekly/2024/001' },
             { text: '000期--新的开始', link: '/weekly/2024/000' }
           ]
         }
