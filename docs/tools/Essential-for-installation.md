@@ -1,10 +1,26 @@
-# 常用的[装机必备]软件汇总~
+# 装机必备软件汇总~
 
 ## 「更新说明」
 
 好的软件不在于多，而在于精。最近想着把胖氪自己常用的一些资源整理到一起，方便自己和大家查阅，大家有好的资源推荐也可以在下方 **@胖氪** ~
 
-## 「装机必备」
+### 谷歌浏览器
+
+官网下载：https://google.cn/chrome/
+
+离线版下载：https://www.google.cn/chrome/index.html?standalone=1
+
+### 火狐浏览器
+
+官网地址：
+
+离线版下载：https://download-redirect.firefox.com.cn/?product=firefox-latest-ssl&os=win64&lang=zh-CN
+
+### ToDesk
+
+官网地址：https://todesk.com/
+
+下载地址：https://dl.todesk.com/windows/ToDesk_Setup.exe
 
 
 ## 「免责声明」
