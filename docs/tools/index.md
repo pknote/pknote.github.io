@@ -4,7 +4,7 @@
 
 好的软件不在于多，而在于精。最近想着把胖氪自己常用的一些资源整理到一起，方便自己和大家查阅，大家有好的资源推荐也可以在下方 **@胖氪** ~
 
-## 🧭 谷歌浏览器
+## 谷歌浏览器
 
 官网下载：https://google.cn/chrome/
 
@@ -16,7 +16,7 @@
 
 离线版下载：https://download-redirect.firefox.com.cn/?product=firefox-latest-ssl&os=win64&lang=zh-CN
 
-### ToDesk
+## ToDesk
 
 官网地址：https://todesk.com/
 
