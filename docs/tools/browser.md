@@ -1,7 +1,7 @@
 # 浏览器
 
 
-## 谷歌浏览器
+## 谷歌浏览器 <Badge type="info" text="⭐️⭐️⭐️⭐️⭐️" />
 
 官网下载：https://google.cn/chrome/
 
