@@ -50,13 +50,13 @@ export default defineConfig({
         {
           text: '装机指南',
           items: [
-            { text: '系统下载', link: '/notes/' },
-            { text: '装机工具', link: '/notes/one' },
-            { text: 'BIOS设置', link: '/notes/two' },
-            { text: '系统安装', link: '/notes/two' },
-            { text: '系统鸡活', link: '/notes/two' },
-            { text: '系统优化', link: '/notes/two' },
-            { text: '软件安装', link: '/notes/two' }
+            { text: '系统下载', link: '/notes/download-system' },
+            { text: '装机工具', link: '/notes/installation-tools' },
+            { text: 'BIOS设置', link: '/notes/bios-settings' },
+            { text: '系统安装', link: '/notes/system-installation' },
+            { text: '系统鸡活', link: '/notes/system-activation' },
+            { text: '系统优化', link: '/notes/system-optimization' },
+            { text: '软件安装', link: '/notes/software-installation' }
           ]
         },
         {
