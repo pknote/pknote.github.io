@@ -82,7 +82,13 @@ export default defineConfig({
         {
           text: '软件工具',
           items: [
-            { text: 'Office', link: '/tools/office' },
+            {
+              text: 'Office',
+              items: [
+                { text: 'zh-CN', link: '/tools/office-zh-cn' },
+                { text: 'en-US', link: '/tools/office-en-us' }
+              ]
+            },
             { text: 'WPS', link: '/tools/wps' },
             { text: 'PDF', link: '/tools/pdf' },
             { text: '浏览器', link: '/tools/browser' },
