@@ -10,6 +10,17 @@ export default defineConfig({
   //fav图标
   head: [
     ['link',{ rel: 'icon', href: '/favicon.ico'}],
+    ['script', {},
+      `
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?6cf604f22f378694dc7d1c99119e1e47";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+      `
+    ]
   ],
 
   //markdown配置
