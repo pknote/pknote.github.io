@@ -15,7 +15,7 @@ export default defineConfig({
         var _hmt = _hmt || [];
         (function() {
           var hm = document.createElement("script");
-          hm.src = "https://hm.baidu.com/hm.js?6cf604f22f378694dc7d1c99119e1e47";
+          hm.src = "https://hm.baidu.com/hm.js?f0ea78561744f7bff2f9a3baea844631";
           var s = document.getElementsByTagName("script")[0]; 
           s.parentNode.insertBefore(hm, s);
         })();
