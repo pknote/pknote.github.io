@@ -18,6 +18,14 @@
 
 下载地址：http://dl.360safe.com/installer/web/PalmInputSetup.exe
 
+## 卡饭输入法
+
+![](https://img.pknote.top/blog/202412130851413.webp)
+
+官网地址：https://input.kfsafe.cn/
+
+下载地址：[Kafan_Input_1.0.0.308.exe](https://csskr.lanzouq.com/b0j01ztch) （密码:4v9u）
+
 ## 
 
 > [!info] 「免责声明」
