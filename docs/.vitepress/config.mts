@@ -93,6 +93,8 @@ export default defineConfig({
         {
           text: '软件工具',
           items: [
+            { text: '浏览器', link: '/tools/browser' },
+            { text: '输入法', link: '/tools/input-method' },
             {
               text: 'Office',
               items: [
@@ -102,7 +104,6 @@ export default defineConfig({
             },
             { text: 'WPS', link: '/tools/wps' },
             { text: 'PDF', link: '/tools/pdf' },
-            { text: '浏览器', link: '/tools/browser' },
             { text: '远程控制', link: '/tools/remote-control' }
           ]
         }
