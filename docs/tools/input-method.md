@@ -16,7 +16,7 @@
 
 官网地址：http://www.xinshuru.com/index.html?p=win
 
-下载地址：http://dl.360safe.com/installer/web/PalmInputSetup.exe
+下载地址：[PalmInputSetup_3.1.2.0.exe](https://csskr.lanzouq.com/b0j01ztrc) （密码:54qu）
 
 ## 卡饭输入法
 
