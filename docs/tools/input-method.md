@@ -2,6 +2,14 @@
 
 ## 微信输入法
 
+![](https://img.pknote.top/blog/202412130837674.webp)
+
+官网地址：https://z.weixin.qq.com/
+
+## 搜狗输入法
+
+下载地址：[搜狗拼音输入法+v9.6.0.3568.exe](https://csskr.lanzouq.com/b0j01zt0f) （密码:cgsd）
+
 ## 手心输入法
 
 ![](https://img.pknote.top/blog/202412130828997.webp)
