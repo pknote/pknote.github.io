@@ -8,6 +8,12 @@
 
 ## 搜狗输入法
 
+![](https://img.pknote.top/blog/202412130906199.webp)
+
+搜狗拼音官网地址：https://pinyin.sogou.com/windows/
+
+搜狗五笔官网地址：https://wubi.sogou.com/
+
 下载地址：[搜狗拼音输入法+v9.6.0.3568.exe](https://csskr.lanzouq.com/b0j01zt0f) （密码:cgsd）
 
 ## 手心输入法
