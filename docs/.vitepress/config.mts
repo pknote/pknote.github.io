@@ -73,9 +73,9 @@ export default defineConfig({
         {
           text: '系统测评',
           items: [
-            { text: 'Index', link: '/guide/' },
-            { text: 'One', link: '/guide/one' },
-            { text: 'Two', link: '/guide/two' }
+            { text: 'LTSC 2024 官方原版', link: '/notes/os/win11ltsc2024' },
+            { text: 'One', link: '/notes/os/' },
+            { text: 'Two', link: '/notes/os/' }
           ]
         },
         {
