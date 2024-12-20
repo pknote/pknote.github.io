@@ -1,30 +1,46 @@
-# 装机必备软件汇总~
+---
+# https://vitepress.dev/reference/default-theme-home-page
+layout: home
 
-> [!TIP] 更新说明
->
-> 好的软件不在于多，而在于精。胖氪把自己常用的一些资源整理到一起，方便自己和大家查阅~
-
-## 谷歌浏览器
-
-官网下载：https://google.cn/chrome/
-
-离线版下载：https://www.google.cn/chrome/index.html?standalone=1
+hero:
+  name: "软件工具"
+  tagline: 我的个人装机必备清单~
 
 
-## ToDesk
-
-官网地址：https://todesk.com/
-
-下载地址：https://dl.todesk.com/windows/ToDesk_Setup.exe
-
-## 
-
-> [!info] 「免责声明」
->
-> 胖氪笔记所发布的一切资源仅限用于学习和研究目的；不得将上述内容用于商业或者非法用途，否则，一切后果请用户自负。
->
-> 胖氪笔记信息来自网络，版权争议与胖氪笔记无关。您必须在下载后的24个小时之内，从您的电脑中彻底删除上述内容。如果您喜欢该程序，请支持正版软件，购买注册，得到更好的正版服务。
->
-> 胖氪笔记提供用户下载的所有内容均转自互联网。如有内容侵犯您的版权或其他利益的，请编辑邮件并加以说明发送到 [我的邮箱](/weekly/2024/000#联系博主) 。我会马上为您删除。
-
-![胖氪笔记公众号](https://img.pknote.top/blog/202404121423456.png)
+features:
+  - icon:
+      src: /logo.png
+    title: 胖氪笔记
+    details: 专注互联网精选资源收藏与分享！
+    link: /
+    linkText: View
+  - icon: 
+      src: https://google.cn/chrome/static/images/chrome-logo-m100.svg
+    title: 谷歌浏览器
+    details: Windows系统、软件的安装与测评
+    link: /tools/browser#谷歌浏览器
+    linkText: View
+  - icon: 
+      src: https://todesk.com/dist/img/0a54c32.png
+    title: ToDesk
+    details: 分享GitHub热门开源项目及小工具
+    link: /tools/remote-control#todesk
+    linkText: View
+  - icon: 
+      src: https://cdn.weread.qq.com/web/wetype/favicon/icon-48.png
+    title: 微信输入法
+    details: Windows系统、软件的安装与测评
+    link: /tools/input-method#微信输入法
+    linkText: View
+  - icon: 
+      src: https://todesk.com/dist/img/0a54c32.png
+    title: 软件工具
+    details: 分享个人常用的精品软件
+    link: /tools
+    linkText: View
+  - icon: 📚
+    title: 开源周刊
+    details: 分享GitHub热门开源项目及小工具
+    link: /weekly
+    linkText: View
+---

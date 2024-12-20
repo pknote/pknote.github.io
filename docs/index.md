@@ -4,7 +4,6 @@ layout: home
 
 hero:
   name: "胖氪笔记"
-  text: "Code Write and Share."
   tagline: 专注互联网精选资源收藏与分享！
 
 
