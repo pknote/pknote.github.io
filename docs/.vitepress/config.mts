@@ -106,7 +106,8 @@ export default defineConfig({
             { text: 'PDF工具', link: '/tools/pdf' },
             { text: '开发工具', link: '/tools/code' },
             { text: '远程控制', link: '/tools/remote-control' },
-            { text: '安全软件', link: '/tools/safe' }
+            { text: '安全软件', link: '/tools/safe' },
+            { text: '解压软件', link: '/tools/zip' }
           ]
         }
       ],
