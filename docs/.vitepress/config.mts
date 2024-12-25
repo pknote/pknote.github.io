@@ -105,7 +105,8 @@ export default defineConfig({
             { text: 'WPS办公', link: '/tools/wps' },
             { text: 'PDF工具', link: '/tools/pdf' },
             { text: '开发工具', link: '/tools/code' },
-            { text: '远程控制', link: '/tools/remote-control' }
+            { text: '远程控制', link: '/tools/remote-control' },
+            { text: '安全软件', link: '/tools/safe' }
           ]
         }
       ],
