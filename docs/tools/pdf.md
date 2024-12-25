@@ -1,5 +1,16 @@
-# PDF
+# PDF工具汇总~
 
+## PDF Candy
+
+使用免费在线 PDF 工具包 PDF Candy 处理 PDF 文件。编辑 PDF、将 PDF 转换为 Word、将 PDF 转换为 JPG、合并和分割 PDF、压缩 PDF 等。
+
+官网：https://pdfcandy.com/cn/
+
+## 转转大师
+
+转转大师PDF转Word在线转换免费工具，快速高效转换PDF为可编辑的Word文档，无需安装软件，支持一键转换，完美保留原文格式和布局。
+
+官网：https://pdftoword.55.la/
 
 ## 
 
