@@ -102,8 +102,9 @@ export default defineConfig({
               ]
             },
             { text: '输入法', link: '/tools/input-method' },
-            { text: 'WPS', link: '/tools/wps' },
-            { text: 'PDF', link: '/tools/pdf' },
+            { text: 'WPS办公', link: '/tools/wps' },
+            { text: 'PDF工具', link: '/tools/pdf' },
+            { text: '开发工具', link: '/tools/code' },
             { text: '远程控制', link: '/tools/remote-control' }
           ]
         }
