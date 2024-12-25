@@ -2,13 +2,9 @@
 
 ## 微信输入法
 
-![](https://img.pknote.top/blog/202412130837674.webp)
-
 官网地址：https://z.weixin.qq.com/
 
 ## 搜狗输入法
-
-![](https://img.pknote.top/blog/202412130906199.webp)
 
 搜狗拼音官网地址：https://pinyin.sogou.com/windows/
 
@@ -18,15 +14,11 @@
 
 ## 手心输入法
 
-![](https://img.pknote.top/blog/202412130828997.webp)
-
 官网地址：http://www.xinshuru.com/index.html?p=win
 
 下载地址：[PalmInputSetup_3.1.2.0.exe](https://csskr.lanzouq.com/b0j01ztrc) （密码:54qu）
 
 ## 卡饭输入法
-
-![](https://img.pknote.top/blog/202412130851413.webp)
 
 官网地址：https://input.kfsafe.cn/
 
