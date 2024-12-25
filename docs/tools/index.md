@@ -38,9 +38,10 @@ features:
     details: 免费简单的个人电脑安全管理软件
     link: /tools/safe#火绒安全
     linkText: View
-  - icon: 📚
-    title: 开源周刊
-    details: 分享GitHub热门开源项目及小工具
-    link: /weekly
+  - icon: 
+      src: https://7-zip.org/7ziplogo.png
+    title: 7-Zip
+    details: 简洁、免费、开源的压缩软件
+    link: /tools/zip#_7-zip
     linkText: View
 ---
