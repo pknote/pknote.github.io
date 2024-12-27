@@ -110,7 +110,7 @@ export default defineConfig({
             { text: '安全软件', link: '/tools/safe' },
             { text: '解压软件', link: '/tools/zip' },
             { text: '建站工具', link: '/tools/website' },
-            { text: 'IT运维', link: '/tools/ittools' }
+            { text: '运维工具', link: '/tools/ittools' }
           ]
         }
       ],
