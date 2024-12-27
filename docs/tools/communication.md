@@ -1,6 +1,29 @@
-# WPS办公软件
+# 沟通交流软件合集~
 
-## WPS集美大学版
+## 微信
+
+官网：https://weixin.qq.com/
+
+下载地址：https://dldir1v6.qq.com/weixin/Windows/WeChatSetup.exe
+
+## 企业微信
+
+官网：https://work.weixin.qq.com/
+
+下载地址：https://work.weixin.qq.com/wework_admin/commdownload?platform=win&from=wwindex
+
+## QQ
+
+官网：https://im.qq.com/index/
+
+下载地址：https://im.qq.com/pcqq/index.shtml
+
+## 钉钉
+
+官网：https://www.dingtalk.com/
+
+下载地址：https://www.dingtalk.com/download
+
 
 ## 
 

@@ -27,10 +27,28 @@ features:
     link: /tools/remote-control#todesk
     linkText: View
   - icon: 
+      src: https://res.wx.qq.com/a/wx_fed/assets/res/NTI4MWU5.ico
+    title: 微信
+    details: 国民应用
+    link: /tools/communication#微信
+    linkText: View
+  - icon: 
+      src: https://wwcdn.weixin.qq.com/node/wwnl/wwnl/style/images/independent/favicon/favicon_48h$c976bd14.png
+    title: 企业微信
+    details: 企鹅家办公交流软件
+    link: /tools/communication#企业微信
+    linkText: View
+  - icon: 
       src: https://cdn.weread.qq.com/web/wetype/favicon/icon-48.png
     title: 微信输入法
     details: 企鹅家出的简洁轻快的输入法
     link: /tools/input-method#微信输入法
+    linkText: View
+  - icon: 
+      src: https://ee.wpscdn.cn/wpscn/favicon.ico
+    title: WPS集美大学版
+    details: 目前在用的版本
+    link: /tools/wps#wps集美大学版
     linkText: View
   - icon: 
       src: https://www.huorong.cn/favicon.png

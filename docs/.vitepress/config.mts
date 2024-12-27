@@ -103,12 +103,14 @@ export default defineConfig({
             },
             { text: '输入法', link: '/tools/input-method' },
             { text: 'WPS办公', link: '/tools/wps' },
+            { text: '沟通交流', link: '/tools/Communication' },
             { text: 'PDF工具', link: '/tools/pdf' },
             { text: '开发工具', link: '/tools/code' },
             { text: '远程控制', link: '/tools/remote-control' },
             { text: '安全软件', link: '/tools/safe' },
             { text: '解压软件', link: '/tools/zip' },
-            { text: '建站工具', link: '/tools/website' }
+            { text: '建站工具', link: '/tools/website' },
+            { text: 'IT运维', link: '/tools/ittools' }
           ]
         }
       ],
