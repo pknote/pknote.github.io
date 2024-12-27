@@ -103,7 +103,7 @@ export default defineConfig({
             },
             { text: '输入法', link: '/tools/input-method' },
             { text: 'WPS办公', link: '/tools/wps' },
-            { text: '沟通交流', link: '/tools/Communication' },
+            { text: '沟通交流', link: '/tools/communication' },
             { text: 'PDF工具', link: '/tools/pdf' },
             { text: '开发工具', link: '/tools/code' },
             { text: '远程控制', link: '/tools/remote-control' },
