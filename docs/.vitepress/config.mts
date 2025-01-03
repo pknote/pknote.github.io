@@ -120,8 +120,8 @@ export default defineConfig({
         {
           text: '2024',
           items: [
-            { text: '001期--新的开始', link: '/weekly/2024/001' },
-            { text: '000期--新的开始', link: '/weekly/2024/000' }
+            { text: '开源周刊--001期', link: '/weekly/2024/001' },
+            { text: '开源周刊--000期', link: '/weekly/2024/000' }
           ]
         }
       ]
