@@ -29,3 +29,19 @@
 项目地址：https://github.com/BartoszCichecki/LenovoLegionToolkit
 
 软件下载：https://csskr.lanzouq.com/b0j03ybzi 密码:38nj
+
+## Pastebin-worker - 基于 Cloudflare worker 的在线文件存储平台
+
+![](https://img.pknote.top/blog/202501030845944.webp-m)
+
+网站功能：文件存储
+
+网站介绍：一个部署在 Cloudflare Workers 上的 Pastebin 项目，提供命令行工具和丰富的功能。
+
+支持短链接分享、自定义 URL、过期时间设置、语法高亮显示、Markdown 转换为 HTML，以及作为 URL 缩短工具使用。
+
+项目支持通过网站和 HTTP API 操作，免费版每天最多 100,000 次读取和 1000 次写入，你可以自行部署到自己的域名。
+
+项目地址：https://github.com/SharzyL/pastebin-worker
+
+网站网址：https://shz.al/
