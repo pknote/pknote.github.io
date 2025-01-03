@@ -1,5 +1,23 @@
 # 开源周刊--002期
 
+## AutoCursorLock - 轻量级自动光标锁定工具
+
+![](https://img.pknote.top/blog/202501030902689.webp-m)
+
+软件功能：鼠标光标锁定
+
+软件平台：#Windows
+
+软件介绍：一个实用工具，它可以解决在多显示器环境下玩游戏时防止鼠标光标意外离开游戏窗口的问题。
+
+它能检测到某些游戏，如 CS:GO 和 Skyrim 处于焦点时自动锁定光标，并在你切换到其他窗口时解锁光标。
+
+它还提供了热键功能，可以手动启用或禁用自动锁定，并可以记住你选择的进程，并在程序启动时自动应用锁定设置。
+
+项目地址：https://github.com/James-LG/AutoCursorLock
+
+下载地址：https://csskr.lanzouq.com/b0j03yl5i 密码:cju1
+
 ## Readecho - 微信读书笔记同步和导出工具
 
 ![](https://img.pknote.top/blog/202501030850177.webp-m)
