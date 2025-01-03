@@ -2,6 +2,8 @@
 
 ## CloudFlare ImgBed - 基于 CF 和 Tg 的免费图床
 
+![](https://img.pknote.top/blog/202501030841649.webp-m)
+
 项目功能：图床工具
 
 项目介绍：一个免费图片托管解决方案，基于 Cloudflare Pages 和 Telegram，它是 Telegraph-Image 的重制版
@@ -11,6 +13,8 @@
 项目地址：https://github.com/MarSeventh/CloudFlare-ImgBed
 
 ## Lenovo Legion Toolkit - 联想拯救者工具箱
+
+![](https://img.pknote.top/blog/202501030840013.webp-m)
 
 软件功能：联想拯救者工具箱
 
