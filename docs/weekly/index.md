@@ -1,29 +1,27 @@
-## Linutil - 实用方便的 Linux 工具箱
+# 开源周刊--002期
 
-![](https://img.pknote.top/blog/202412171126279.webp)
+## CloudFlare ImgBed - 基于 CF 和 Tg 的免费图床
 
-软件功能：**Linux 工具箱**
+项目功能：图床工具
 
-软件平台：**#Linux**
+项目介绍：一个免费图片托管解决方案，基于 Cloudflare Pages 和 Telegram，它是 Telegraph-Image 的重制版
 
-软件介绍：一个与发行版无关的 Linux 工具箱，旨在简化日常 Linux 任务，可以帮助用户设置应用程序并优化系统性能。
+它在保留原版全部功能的基础上，实现了登录鉴权、页面自定义、上传图片预览、一键切换上传方式、多文件上传、整体复制、多格式复制、上传前自动压缩等功能。
 
-工具使用 Rust 语言开发，它可以实现自动化软件安装、系统优化、安全配置等功能。
+项目地址：https://github.com/MarSeventh/CloudFlare-ImgBed
 
-项目地址：https://github.com/ChrisTitusTech/linutil
+## Lenovo Legion Toolkit - 联想拯救者工具箱
 
-软件下载：[**点击下载**](https://github.com/ChrisTitusTech/linutil/releases)
+软件功能：联想拯救者工具箱
 
-## video2x - 开源无损视频/GIF/图像方法工具
+软件平台：#Windows
 
-![](https://img.pknote.top/blog/202412171129707.webp)
+软件介绍：一个开源软件，专为联想拯救者系列笔记本电脑设计，旨在帮助用户更好地管理和优化设备的性能和设置。
 
-项目功能：**视频/GIF/图像无损放大**
+工具支持调整性能模式、充电模式、风扇曲线等，同时也能控制 RGB 键盘灯光和监控显卡活动。此外，它还允许用户自定义各种操作，如开机时自动执行的任务。
 
-项目介绍：一个开源无损视频、GIF 和图像放大工具，利用了多种先进算法，包括 waifu2x、Anime4K、SRMD 和 RealSR。
+工具可以替代联想官方软件，并提供更多高级设置，它兼容 2020 年及之后的 Legion 系列机型，并提供对一些较早型号的部分支持。
 
-它能够通过这些算法提升视频、GIF 和图像的分辨率，且支持帧插补，提升视频的帧率。
+项目地址：https://github.com/BartoszCichecki/LenovoLegionToolkit
 
-Video2X 具有图形用户界面（GUI）和命令行界面（CLI）两种模式，此外，Video2X 还支持 Docker 部署。
-
-项目地址：https://github.com/k4yt3x/video2x
+软件下载：https://csskr.lanzouq.com/b0j03ybzi 密码:38nj
