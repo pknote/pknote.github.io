@@ -2,7 +2,7 @@
 jQuery(document).ready(function(){function c(){document.title=document[a]?"（╯︿╰）崩溃啦！~《"+d+"》":d}var a,b,d=document.title;"undefined"!=typeof document.hidden?(a="hidden",b="visibilitychange"):"undefined"!=typeof document.mozHidden?(a="mozHidden",b="mozvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(a="webkitHidden",b="webkitvisibilitychange");"undefined"==typeof document.addEventListener&&"undefined"==typeof document[a]||document.addEventListener(b,c,!1)});
 
 // 主页判断
-var myurl = document.domain;if (myurl != "gotoo.asia") {window.location.href = "https://gotoo.asia/";}
+// var myurl = document.domain;if (myurl != "gotoo.asia") {window.location.href = "https://gotoo.asia/";}
 
 // 百度统计代码
 var _hmt = _hmt || [];
@@ -56,7 +56,7 @@ $(document).on('copy', function (){
             text = '欢迎从 谷歌搜索 进来的朋友！';
         }
     }else {
-        if (window.location.href == `pknote.top`) { //主页URL判断，需要斜杠结尾
+        if (window.location.hostname === 'pknote.top') { //主页URL判断
             var now = (new Date()).getHours();
             if (now > 23 || now <= 5) {
                 text = '你是夜猫子呀？这么晚还不睡觉，明天起的来嘛？';
@@ -108,24 +108,25 @@ function hideMessage(timeout){
 
 
 
-document.ondragstart=function(){return false}; //for image 
-document.oncontextmenu=function(e){return false}; //for right click disable
-document.onkeydown = function(e) {
-  if (e.ctrlKey && 
-      (e.keyCode === 65 ||
-      e.keyCode === 67 || 
-      e.keyCode === 73 ||
-      e.keyCode === 74 ||
-      e.keyCode === 80 || 
-      e.keyCode === 83 || 
-      e.keyCode === 85 || 
-      e.keyCode === 86 || 
-      e.keyCode === 117
-      )) {
-      return false;
-  } 
-  if(e.keyCode==18||e.keyCode==123){return false}
-};
+// 已禁用以下限制代码，方便调试
+// document.ondragstart=function(){return false}; //for image
+// document.oncontextmenu=function(e){return false}; //for right click disable
+// document.onkeydown = function(e) {
+//   if (e.ctrlKey &&
+//       (e.keyCode === 65 ||
+//       e.keyCode === 67 ||
+//       e.keyCode === 73 ||
+//       e.keyCode === 74 ||
+//       e.keyCode === 80 ||
+//       e.keyCode === 83 ||
+//       e.keyCode === 85 ||
+//       e.keyCode === 86 ||
+//       e.keyCode === 117
+//       )) {
+//       return false;
+//   }
+//   if(e.keyCode==18||e.keyCode==123){return false}
+// };
 
 
 jQuery(document).ready(function($) {

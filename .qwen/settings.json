@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(git init)",
-      "Bash(git remote *)"
+      "Bash(git remote *)",
+      "Bash(git add *)",
+      "Bash(git push *)"
     ]
   },
   "$version": 3
