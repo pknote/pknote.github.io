@@ -1,7 +1,7 @@
 //JS代码实现浏览器网页标题的动态切换
 jQuery(document).ready(function(){function c(){document.title=document[a]?"（╯︿╰）崩溃啦！~《"+d+"》":d}var a,b,d=document.title;"undefined"!=typeof document.hidden?(a="hidden",b="visibilitychange"):"undefined"!=typeof document.mozHidden?(a="mozHidden",b="mozvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(a="webkitHidden",b="webkitvisibilitychange");"undefined"==typeof document.addEventListener&&"undefined"==typeof document[a]||document.addEventListener(b,c,!1)});
 
-// 主页判断
+// 主页判断（已禁用，方便调试）
 // var myurl = document.domain;if (myurl != "gotoo.asia") {window.location.href = "https://gotoo.asia/";}
 
 // 百度统计代码
@@ -9,8 +9,45 @@ var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
   hm.src = "https://hm.baidu.com/hm.js?f0ea78561744f7bff2f9a3baea844631";
-  var s = document.getElementsByTagName("script")[0]; 
+  var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(hm, s);
+})();
+
+// 动态渲染链接
+(function() {
+  $.getJSON('/links.json', function(data) {
+    // 常用链接
+    var commonHtml = '';
+    data['常用'].forEach(function(item) {
+      var rel = item.rel ? ' rel="' + item.rel + '"' : '';
+      commonHtml += '<div class="col-xs-6 col-sm-3 col-md-2"><a href="' + item.url + '"' + rel + '><img src="' + item.icon + '">' + item.name + '</a></div>';
+    });
+    $('#common-links').html(commonHtml);
+
+    // 导航按钮
+    var navHtml = '';
+    data['导航'].forEach(function(item) {
+      navHtml += '<div class="col-xs-4 col-md-2"><a href="' + item.url + '" class="' + item.class + '" target="_self">' + item.name + '</a></div>';
+    });
+    $('#nav-buttons').html(navHtml);
+
+    // 神秘代码
+    $('#secret-code').html(data['神秘代码'].title + '：<span>' + data['神秘代码'].code + '</span>');
+
+    // 朋友圈
+    var friendHtml = '';
+    data['朋友圈'].forEach(function(item) {
+      friendHtml += '<div class="col-xs-6 col-sm-3 col-md-2"><a href="' + item.url + '"><div class="card-title b1"><div class="tit">' + item.name + '</div><p>' + item.desc + '</p></div></a></div>';
+    });
+    $('#friend-links').html(friendHtml);
+
+    // 优质博客
+    var blogHtml = '';
+    data['优质博客'].forEach(function(item) {
+      blogHtml += '<div class="col-xs-6 col-sm-3 col-md-2"><a href="' + item.url + '"><div class="card-title ' + item.border + '"><div class="tit">' + item.name + '</div><p>' + item.desc + '</p></div></a></div>';
+    });
+    $('#blog-links').html(blogHtml);
+  });
 })();
 
 // Message
@@ -56,7 +93,7 @@ $(document).on('copy', function (){
             text = '欢迎从 谷歌搜索 进来的朋友！';
         }
     }else {
-        if (window.location.hostname === 'pknote.top') { //主页URL判断
+        if (window.location.hostname === 'pknote.top') {
             var now = (new Date()).getHours();
             if (now > 23 || now <= 5) {
                 text = '你是夜猫子呀？这么晚还不睡觉，明天起的来嘛？';
@@ -106,8 +143,6 @@ function hideMessage(timeout){
     $('.message').delay(timeout).fadeTo(20, 0);
 }
 
-
-
 // 已禁用以下限制代码，方便调试
 // document.ondragstart=function(){return false}; //for image
 // document.oncontextmenu=function(e){return false}; //for right click disable
@@ -128,14 +163,13 @@ function hideMessage(timeout){
 //   if(e.keyCode==18||e.keyCode==123){return false}
 // };
 
-
 jQuery(document).ready(function($) {
     $("html,body").click(function(e){
         var dfs=["富强","民主","文明","和谐","自由","平等","公正","法治","爱国","敬业","诚信","友善"];
-        var n=Math.floor(Math.random() * dfs.length + 1)-1;   //随机获取一条数据
-        var $i=$("<p/>").text(dfs[n]);      //新建一个b标签，并显示随机的话语
-        var x=e.pageX,y=e.pageY;            //获取鼠标点击的x，和y
-        $i.css({                            //为标签赋予css值  
+        var n=Math.floor(Math.random() * dfs.length + 1)-1;
+        var $i=$("<p/>").text(dfs[n]);
+        var x=e.pageX,y=e.pageY;
+        $i.css({
             "z-index":99999,
             "top":y-20,
             "left":x,
@@ -148,9 +182,9 @@ jQuery(document).ready(function($) {
             "-ms-user-select": "none",
             "-khtml-user-select": "none",
             "user-select": "none",
-        });   
-        $("body").append($i);//在尾部插入
-        $i.animate( {"top":y-180,"opacity":0}, 1500, function(){$i.remove();});//动画消除
+        });
+        $("body").append($i);
+        $i.animate( {"top":y-180,"opacity":0}, 1500, function(){$i.remove();});
         e.stopPropagation();
     });
 });
