@@ -32,7 +32,32 @@ var _hmt = _hmt || [];
     $('#nav-buttons').html(navHtml);
 
     // 神秘代码
-    $('#secret-code').html(data['神秘代码'].title + '：<span>' + data['神秘代码'].code + '</span>');
+    $('#secret-label').text(data['神秘代码'].title);
+    $('#secret-text').text(data['神秘代码'].code);
+    var secretCode = data['神秘代码'].code;
+
+    // 复制按钮功能
+    $('#copy-secret-btn').on('click', function() {
+      var $btn = $(this);
+      navigator.clipboard.writeText(secretCode).then(function() {
+        $btn.text('已复制').addClass('copied');
+        setTimeout(function() {
+          $btn.text('复制').removeClass('copied');
+        }, 2000);
+      }).catch(function() {
+        // 兼容旧浏览器
+        var textarea = document.createElement('textarea');
+        textarea.value = secretCode;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        $btn.text('已复制').addClass('copied');
+        setTimeout(function() {
+          $btn.text('复制').removeClass('copied');
+        }, 2000);
+      });
+    });
 
     // 朋友圈
     var friendHtml = '';

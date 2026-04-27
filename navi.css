@@ -38,3 +38,14 @@ body{background: #fafbfc;font-family:LXGW WenKai;}
 .postinfo{-ms-text-align: center;text-align: center;line-height: 35px;margin: 10px;font-size: 16px;}
 .postinfo a{color: #00B1FD;}.postinfo a:hover{color: red;}
 
+/* 神秘代码 - 代码块风格 */
+.secret-code-box{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);border-radius:8px;padding:12px 15px;margin-top:10px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.secret-code-box::before{content:'>_';color:#23d186;font-size:14px;font-family:'Consolas','Monaco',monospace;}
+.secret-code-box .code-content{flex:1;display:flex;align-items:baseline;gap:8px;min-width:200px;}
+.secret-code-box .code-label{color:#00B1FD;font-size:13px;font-weight:600;}
+.secret-code-box .code-text{color:#23d186;font-size:14px;font-family:'Consolas','Monaco',monospace;}
+.secret-code-box .copy-btn{padding:5px 14px;font-size:13px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#fff;border-radius:4px;cursor:pointer;transition:all 0.2s;}
+.secret-code-box .copy-btn:hover{background:#F95B5A;border-color:#F95B5A;}
+.secret-code-box .copy-btn.copied{background:#23d186;border-color:#23d186;}
+@media (max-width: 768px) {.secret-code-box{padding:10px 12px;}.secret-code-box .code-content{order:1;width:100%;}.secret-code-box .copy-btn{order:2;width:100%;text-align:center;}}
+

@@ -8,7 +8,12 @@
       "Bash(git branch *)",
       "Bash(python *)",
       "Bash(type *)",
-      "Bash(findstr *)"
+      "Bash(findstr *)",
+      "Bash(curl *)",
+      "Bash(taskkill *)",
+      "Bash(ping *)",
+      "Bash(netstat *)",
+      "Bash(git restore *)"
     ]
   },
   "$version": 3
