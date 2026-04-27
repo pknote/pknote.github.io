@@ -5,7 +5,10 @@
       "Bash(git remote *)",
       "Bash(git add *)",
       "Bash(git push *)",
-      "Bash(git branch *)"
+      "Bash(git branch *)",
+      "Bash(python *)",
+      "Bash(type *)",
+      "Bash(findstr *)"
     ]
   },
   "$version": 3
