@@ -1,4 +1,5 @@
 body{background: #fafbfc;font-family:LXGW WenKai;}
+a:focus,a:active{outline:none;box-shadow:none;text-decoration:none;}
 @media (min-width: 768px) {body {background-image: url(/mainbg.svg);background-color: #f1f1f1;background-size: cover;background-repeat: no-repeat;background-attachment: fixed;}}
 .bg1{background: #F95B5A;}.bg2{background: #00B1FD;}.bg3{background: #8B8EF0;}
 .bg4{background: #23D186;}.bg5{background: #65D020;}.bg6{background: #FFC816;}
