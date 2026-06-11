@@ -13,85 +13,30 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 
-// 动态渲染链接
-(function() {
-  $.getJSON('/links.json', function(data) {
-    // 常用链接
-    var commonHtml = '';
-    data['常用'].forEach(function(item) {
-      var rel = item.rel ? ' rel="' + item.rel + '"' : '';
-      commonHtml += '<div class="col-xs-6 col-sm-3 col-md-2"><a href="' + item.url + '"' + rel + '><img src="' + item.icon + '">' + item.name + '</a></div>';
+// 神秘代码复制功能
+$(function() {
+  $('#copy-secret-btn').on('click', function() {
+    var $btn = $(this);
+    var secretCode = $('#secret-text').text();
+    navigator.clipboard.writeText(secretCode).then(function() {
+      $btn.text('已复制').addClass('copied');
+      setTimeout(function() {
+        $btn.text('复制').removeClass('copied');
+      }, 2000);
+    }).catch(function() {
+      var textarea = document.createElement('textarea');
+      textarea.value = secretCode;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      $btn.text('已复制').addClass('copied');
+      setTimeout(function() {
+        $btn.text('复制').removeClass('copied');
+      }, 2000);
     });
-    $('#common-links').html(commonHtml);
-
-    // 导航按钮
-    var navHtml = '';
-    data['导航'].forEach(function(item) {
-      navHtml += '<div class="col-xs-4 col-md-2"><a href="' + item.url + '" class="' + item.class + '" target="_self">' + item.name + '</a></div>';
-    });
-    $('#nav-buttons').html(navHtml);
-
-    // 神秘代码
-    $('#secret-label').text(data['神秘代码'].title);
-    $('#secret-text').text(data['神秘代码'].code);
-    var secretCode = data['神秘代码'].code;
-
-    // 复制按钮功能
-    $('#copy-secret-btn').on('click', function() {
-      var $btn = $(this);
-      navigator.clipboard.writeText(secretCode).then(function() {
-        $btn.text('已复制').addClass('copied');
-        setTimeout(function() {
-          $btn.text('复制').removeClass('copied');
-        }, 2000);
-      }).catch(function() {
-        // 兼容旧浏览器
-        var textarea = document.createElement('textarea');
-        textarea.value = secretCode;
-        document.body.appendChild(textarea);
-        textarea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textarea);
-        $btn.text('已复制').addClass('copied');
-        setTimeout(function() {
-          $btn.text('复制').removeClass('copied');
-        }, 2000);
-      });
-    });
-
-    // 朋友圈
-    var friendHtml = '';
-    data['朋友圈'].forEach(function(item) {
-      friendHtml += '<div class="col-xs-6 col-sm-3 col-md-2"><a href="' + item.url + '"><div class="card-title b1"><div class="tit">' + item.name + '</div><p>' + item.desc + '</p></div></a></div>';
-    });
-    $('#friend-links').html(friendHtml);
-
-    // 优质博客
-    var blogHtml = '';
-    data['优质博客'].forEach(function(item) {
-      blogHtml += '<div class="col-xs-6 col-sm-3 col-md-2"><a href="' + item.url + '"><div class="card-title ' + item.border + '"><div class="tit">' + item.name + '</div><p>' + item.desc + '</p></div></a></div>';
-    });
-    $('#blog-links').html(blogHtml);
-
-    // 动态渲染其他分类
-    var specialCats = ['常用', '导航', '神秘代码', '朋友圈', '优质博客'];
-    var dynamicHtml = '';
-    for (var cat in data) {
-      if (specialCats.indexOf(cat) !== -1) continue;
-      if (cat === '神秘代码') continue;
-      if (!Array.isArray(data[cat])) continue;
-      if (data[cat].length === 0) continue;
-      dynamicHtml += '<div class="container"><div class="ckcard"><div class="row"><div class="cardhd c1">≡ ' + cat + ' ≡</div>';
-      data[cat].forEach(function(item) {
-        var border = item.border || 'b1';
-        var desc = item.desc || '';
-        dynamicHtml += '<div class="col-xs-6 col-sm-3 col-md-2"><a href="' + item.url + '"><div class="card-title ' + border + '"><div class="tit">' + item.name + '</div><p>' + desc + '</p></div></a></div>';
-      });
-      dynamicHtml += '</div></div></div>';
-    }
-    $('#dynamic-categories').html(dynamicHtml);
   });
-})();
+});
 
 // Message
 function renderTip(template, context) {
@@ -119,7 +64,6 @@ String.prototype.renderTip = function (context) {
 $(document).on('copy', function (){
     showMessage('你都复制了些什么呀，转载要记得加上出处哦~~', 5000);
 });
-
 
 (function (){
     var text;
@@ -187,8 +131,8 @@ function hideMessage(timeout){
 }
 
 // 已禁用以下限制代码，方便调试
-// document.ondragstart=function(){return false}; //for image
-// document.oncontextmenu=function(e){return false}; //for right click disable
+// document.ondragstart=function(){return false};
+// document.oncontextmenu=function(e){return false};
 // document.onkeydown = function(e) {
 //   if (e.ctrlKey &&
 //       (e.keyCode === 65 ||
