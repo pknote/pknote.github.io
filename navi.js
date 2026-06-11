@@ -72,6 +72,24 @@ var _hmt = _hmt || [];
       blogHtml += '<div class="col-xs-6 col-sm-3 col-md-2"><a href="' + item.url + '"><div class="card-title ' + item.border + '"><div class="tit">' + item.name + '</div><p>' + item.desc + '</p></div></a></div>';
     });
     $('#blog-links').html(blogHtml);
+
+    // 动态渲染其他分类
+    var specialCats = ['常用', '导航', '神秘代码', '朋友圈', '优质博客'];
+    var dynamicHtml = '';
+    for (var cat in data) {
+      if (specialCats.indexOf(cat) !== -1) continue;
+      if (cat === '神秘代码') continue;
+      if (!Array.isArray(data[cat])) continue;
+      if (data[cat].length === 0) continue;
+      dynamicHtml += '<div class="container"><div class="ckcard"><div class="row"><div class="cardhd c1">≡ ' + cat + ' ≡</div>';
+      data[cat].forEach(function(item) {
+        var border = item.border || 'b1';
+        var desc = item.desc || '';
+        dynamicHtml += '<div class="col-xs-6 col-sm-3 col-md-2"><a href="' + item.url + '"><div class="card-title ' + border + '"><div class="tit">' + item.name + '</div><p>' + desc + '</p></div></a></div>';
+      });
+      dynamicHtml += '</div></div></div>';
+    }
+    $('#dynamic-categories').html(dynamicHtml);
   });
 })();
 
