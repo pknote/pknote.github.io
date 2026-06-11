@@ -52,6 +52,15 @@
       <button class="btn btn-success" id="btn-add-cat">添加分类</button>
     </div>
 
+    <!-- 导入 -->
+    <div class="panel panel-info" style="margin-bottom:20px;">
+      <div class="panel-heading">导入已有分类（从 index.html 复制 HTML 粘贴到下方）</div>
+      <div class="panel-body">
+        <textarea class="form-control" id="import-area" rows="3" placeholder="粘贴 HTML 代码..."></textarea>
+        <button class="btn btn-info" id="btn-import" style="margin-top:10px;">导入</button>
+      </div>
+    </div>
+
     <!-- 添加链接 -->
     <div class="panel panel-default">
       <div class="panel-heading">添加链接</div>
@@ -253,6 +262,44 @@
       saveData();
       renderList();
       updateHtml();
+    });
+
+    // 导入
+    $('#btn-import').click(function() {
+      var html = $('#import-area').val().trim();
+      if (!html) return;
+
+      // 解析分类名
+      var catMatch = html.match(/cardhd c(\d+)">≡\s*([^ ]+)\s*≡/);
+      if (!catMatch) {
+        alert('无法解析分类名，请检查 HTML 格式是否正确');
+        return;
+      }
+      var colorNum = catMatch[1];
+      var catName = catMatch[2];
+
+      // 解析链接
+      var items = [];
+      var itemReg = /<a href="([^"]+)">.*?<div class="tit">([^<]+)<\/div>.*?<p>([^<]*)<\/p>/g;
+      var match;
+      while ((match = itemReg.exec(html)) !== null) {
+        items.push({ url: match[1], name: match[2], desc: match[3] });
+      }
+
+      if (items.length === 0) {
+        alert('未找到链接，请检查 HTML 格式');
+        return;
+      }
+
+      // 覆盖或新建分类
+      data[catName] = { items: items, color: colorNum };
+      currentCat = catName;
+      saveData();
+      renderTabs();
+      renderList();
+      updateHtml();
+      $('#import-area').val('');
+      alert('导入成功！共 ' + items.length + ' 条链接');
     });
 
     // 复制
