@@ -39,6 +39,16 @@
       <div class="form-group">
         <input type="text" class="form-control" id="new-category" placeholder="新分类名称">
       </div>
+      <div class="form-group">
+        <select class="form-control" id="new-color">
+          <option value="1">红色</option>
+          <option value="2">蓝色</option>
+          <option value="3">紫色</option>
+          <option value="4">绿色</option>
+          <option value="5">浅绿</option>
+          <option value="6">黄色</option>
+        </select>
+      </div>
       <button class="btn btn-success" id="btn-add-cat">添加分类</button>
     </div>
 
@@ -55,12 +65,6 @@
           </div>
           <div class="form-group">
             <input type="text" class="form-control" id="input-desc" placeholder="描述">
-          </div>
-          <div class="form-group">
-            <select class="form-control" id="input-border">
-              <option value="b1">红色边框</option>
-              <option value="b6">黄色边框</option>
-            </select>
           </div>
           <button type="submit" class="btn btn-success">添加</button>
         </form>
@@ -98,6 +102,12 @@
       if (saved) {
         try {
           data = JSON.parse(saved);
+          // 兼容旧数据结构
+          for (var cat in data) {
+            if (Array.isArray(data[cat])) {
+              data[cat] = { items: data[cat], color: '1' };
+            }
+          }
         } catch(e) {
           data = {};
         }
@@ -118,20 +128,29 @@
       $tabs.empty();
       for (var cat in data) {
         var active = (cat === currentCat) ? 'active' : '';
-        $tabs.append('<li class="' + active + '"><a href="#" data-category="' + cat + '">' + cat + '</a></li>');
+        var colorNum = data[cat].color || '1';
+        $tabs.append('<li class="' + active + '"><a href="#" data-category="' + cat + '"><span style="color:#' + getColorHex(colorNum) + '">■</span> ' + cat + '</a></li>');
       }
       if (Object.keys(data).length === 0) {
         currentCat = '朋友圈';
-        data['朋友圈'] = [];
+        data['朋友圈'] = { items: [], color: '1' };
+        saveData();
         renderTabs();
       }
+    }
+
+    function getColorHex(n) {
+      var colors = { '1': 'F95B5A', '2': '00B1FD', '3': '8B8EF0', '4': '23D186', '5': '65D020', '6': 'FFC816' };
+      return colors[n] || 'F95B5A';
     }
 
     // 渲染列表
     function renderList() {
       var $list = $('#link-list');
-      var items = data[currentCat] || [];
-      $('#list-heading').text(currentCat + ' - ' + items.length + ' 条');
+      var catData = data[currentCat] || { items: [], color: '1' };
+      var items = catData.items || [];
+      var colorNum = catData.color || '1';
+      $('#list-heading').text(currentCat + ' - ' + items.length + ' 条  【' + getColorName(colorNum) + '】');
 
       if (!items.length) {
         $list.html('<p class="text-muted">暂无链接，点上方表单添加</p>');
@@ -151,9 +170,16 @@
       $list.html(html);
     }
 
+    function getColorName(n) {
+      var names = { '1': '红色', '2': '蓝色', '3': '紫色', '4': '绿色', '5': '浅绿', '6': '黄色' };
+      return names[n] || '红色';
+    }
+
     // 更新 HTML 输出
     function updateHtml() {
-      var items = data[currentCat] || [];
+      var catData = data[currentCat] || { items: [], color: '1' };
+      var items = catData.items || [];
+      var colorNum = catData.color || '1';
       if (!items.length) {
         $('#html-output').text('<!-- ' + currentCat + ' -->\n<!-- 暂无内容 -->');
         return;
@@ -162,9 +188,9 @@
       html += '  <div class="container">\n';
       html += '    <div class="ckcard">\n';
       html += '      <div class="row">\n';
-      html += '        <div class="cardhd c1">≡ ' + currentCat + ' ≡</div>\n';
+      html += '        <div class="cardhd c' + colorNum + '">≡ ' + currentCat + ' ≡</div>\n';
       items.forEach(function(item) {
-        var border = item.border || 'b1';
+        var border = 'b' + colorNum;
         var desc = item.desc || '';
         html += '        <div class="col-xs-6 col-sm-3 col-md-2"><a href="' + item.url + '"><div class="card-title ' + border + '"><div class="tit">' + item.name + '</div><p>' + desc + '</p></div></a></div>\n';
       });
@@ -188,12 +214,13 @@
     // 添加分类
     $('#btn-add-cat').click(function() {
       var name = $('#new-category').val().trim();
+      var color = $('#new-color').val();
       if (!name) return;
       if (data[name]) {
         alert('分类已存在');
         return;
       }
-      data[name] = [];
+      data[name] = { items: [], color: color };
       currentCat = name;
       saveData();
       renderTabs();
@@ -208,10 +235,9 @@
       var name = $('#input-name').val().trim();
       var url = $('#input-url').val().trim();
       var desc = $('#input-desc').val().trim();
-      var border = $('#input-border').val();
       if (!name || !url) return;
 
-      data[currentCat].push({ name: name, url: url, desc: desc, border: border });
+      data[currentCat].items.push({ name: name, url: url, desc: desc });
       saveData();
       renderList();
       updateHtml();
@@ -223,7 +249,7 @@
     // 删除
     $('#link-list').on('click', '.del-btn', function() {
       var i = $(this).data('i');
-      data[currentCat].splice(i, 1);
+      data[currentCat].items.splice(i, 1);
       saveData();
       renderList();
       updateHtml();
