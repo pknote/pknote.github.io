@@ -21,6 +21,8 @@
     .form-inline{margin-bottom:15px;}
     .json-output{background:#1a1a2e;color:#23d186;font-family:Consolas,Monaco,monospace;font-size:13px;padding:15px;border-radius:8px;max-height:400px;overflow:auto;white-space:pre-wrap;word-break:break-all;}
     .copy-success{background:#23d186!important;}
+    .delete-cat-btn{color:#d9534f;cursor:pointer;margin-left:5px;}
+    .delete-cat-btn:hover{text-decoration:underline;}
   </style>
 </head>
 <body>
@@ -34,6 +36,16 @@
     <!-- 工具栏 -->
     <div class="row" style="margin-bottom:20px;">
       <div class="col-md-12">
+        <div class="form-inline">
+          <div class="form-group">
+            <input type="text" class="form-control" id="new-category-name" placeholder="新分类名称">
+          </div>
+          <button class="btn btn-success" id="btn-add-category">添加分类</button>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="margin-bottom:20px;">
+      <div class="col-md-12">
         <button class="btn btn-success" id="btn-save">保存到本地</button>
         <button class="btn btn-primary" id="btn-copy">复制 JSON</button>
         <button class="btn btn-info" id="btn-download">下载 JSON</button>
@@ -43,13 +55,7 @@
     </div>
 
     <!-- 分类切换 -->
-    <ul class="nav nav-tabs" id="category-tabs">
-      <li class="active"><a href="#" data-category="常用">常用链接</a></li>
-      <li><a href="#" data-category="导航">导航按钮</a></li>
-      <li><a href="#" data-category="神秘代码">神秘代码</a></li>
-      <li><a href="#" data-category="朋友圈">朋友圈</a></li>
-      <li><a href="#" data-category="优质博客">优质博客</a></li>
-    </ul>
+    <ul class="nav nav-tabs" id="category-tabs"></ul>
 
     <!-- 添加表单 -->
     <div class="panel panel-default">
@@ -64,7 +70,7 @@
             <label>链接</label>
             <input type="url" class="form-control" id="input-url" placeholder="https://" required>
           </div>
-          <div class="form-group" id="input-icon-group">
+          <div class="form-group" id="input-icon-group" style="display:none;">
             <label>图标</label>
             <input type="text" class="form-control" id="input-icon" placeholder="/ico/xxx.png">
           </div>
@@ -136,21 +142,46 @@
   <script>
   $(function() {
     var STORAGE_KEY = 'pknav_links_data';
-    var currentCategory = '常用';
+    var currentCategory = null;
     var linksData = null;
+    var defaultCategories = ['常用', '导航', '神秘代码', '朋友圈', '优质博客'];
+
+    // 渲染分类标签
+    function renderTabs() {
+      var $tabs = $('#category-tabs');
+      $tabs.empty();
+      for (var key in linksData) {
+        if (key === '神秘代码') continue;
+        var isActive = (key === currentCategory) ? 'active' : '';
+        var isDefault = (defaultCategories.indexOf(key) !== -1);
+        var delBtn = isDefault ? '' : '<span class="delete-cat-btn" data-cat="' + key + '" title="删除分类">×</span>';
+        $tabs.append('<li class="' + isActive + '"><a href="#" data-category="' + key + '">' + key + delBtn + '</a></li>');
+      }
+      // 神秘代码单独放最后
+      if (linksData['神秘代码']) {
+        var isActive = ('神秘代码' === currentCategory) ? 'active' : '';
+        $tabs.append('<li class="' + isActive + '"><a href="#" data-category="神秘代码">神秘代码</a></li>');
+      }
+    }
 
     // 加载数据
     function loadData() {
       var saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
         try {
-          return JSON.parse(saved);
+          linksData = JSON.parse(saved);
+          currentCategory = currentCategory || getFirstCategory();
+          renderTabs();
+          renderList();
+          updatePreview();
+          return;
         } catch(e) {}
       }
-      // 从 links.json 加载
       $.getJSON('/links.json', function(data) {
         linksData = data;
         localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        currentCategory = currentCategory || getFirstCategory();
+        renderTabs();
         renderList();
         updatePreview();
       }).fail(function() {
@@ -158,10 +189,28 @@
       });
     }
 
+    function getFirstCategory() {
+      for (var key in linksData) {
+        if (key !== '神秘代码') return key;
+      }
+      return null;
+    }
+
     // 保存数据
     function saveData() {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(linksData));
       $('#save-status').show().fadeOut(2000);
+    }
+
+    // 获取分类配置
+    function getCatConfig(cat) {
+      if (cat === '神秘代码') return { isSecret: true };
+      if (cat === '常用') return { showIcon: true, showRel: true };
+      if (cat === '导航') return { showClass: true };
+      if (cat === '朋友圈') return { showDesc: true };
+      if (cat === '优质博客') return { showDesc: true, showBorder: true };
+      // 自定义分类：name + url + desc
+      return { showDesc: true };
     }
 
     // 渲染列表
@@ -172,23 +221,21 @@
 
       if (currentCategory === '神秘代码') {
         $('#secret-code-panel').show();
+        $('#add-form').hide();
         $('#secret-title').val(linksData['神秘代码'].title);
         $('#secret-code').val(linksData['神秘代码'].code);
         return;
-      } else {
-        $('#secret-code-panel').hide();
       }
 
+      $('#secret-code-panel').hide();
+      $('#add-form').show();
+
+      var config = getCatConfig(currentCategory);
       var items = linksData[currentCategory];
       if (!items || !items.length) {
         $list.html('<p class="text-muted">暂无数据</p>');
         return;
       }
-
-      var showIcon = (currentCategory === '常用');
-      var showDesc = (currentCategory === '朋友圈' || currentCategory === '优质博客');
-      var showClass = (currentCategory === '导航');
-      var showBorder = (currentCategory === '优质博客');
 
       $heading.text(currentCategory + ' - 共 ' + items.length + ' 条');
 
@@ -196,18 +243,18 @@
       for (var i = 0; i < items.length; i++) {
         var item = items[i];
         html += '<div class="link-item" data-index="' + i + '">';
-        if (showIcon && item.icon) {
+        if (config.showIcon && item.icon) {
           html += '<img src="' + item.icon + '" onerror="this.src=\'/favicon.ico\'">';
         }
         html += '<span class="link-name">' + item.name + '</span>';
         html += '<span class="link-url" title="' + item.url + '">' + item.url + '</span>';
-        if (showDesc && item.desc) {
+        if (config.showDesc && item.desc) {
           html += '<span class="link-desc" title="' + item.desc + '">' + item.desc + '</span>';
         }
-        if (showClass && item.class) {
+        if (config.showClass && item.class) {
           html += '<span class="label label-default">' + item.class + '</span>';
         }
-        if (showBorder && item.border) {
+        if (config.showBorder && item.border) {
           html += '<span class="label label-default">' + item.border + '</span>';
         }
         html += '<span class="link-actions">';
@@ -223,26 +270,60 @@
       $('#json-preview').text(JSON.stringify(linksData, null, 2));
     }
 
+    // 显示/隐藏表单字段
+    function updateFormFields() {
+      var config = getCatConfig(currentCategory);
+      $('#input-icon-group').toggle(!!config.showIcon);
+      $('#input-desc-group').toggle(!!config.showDesc);
+      $('#input-class-group').toggle(!!config.showClass);
+      $('#input-border-group').toggle(!!config.showBorder);
+      $('#input-rel-group').toggle(!!config.showRel);
+    }
+
     // 切换分类
-    $('#category-tabs a').click(function(e) {
+    $('#category-tabs').on('click', 'a', function(e) {
       e.preventDefault();
       $('#category-tabs li').removeClass('active');
       $(this).parent().addClass('active');
       currentCategory = $(this).data('category');
-
-      // 显示/隐藏相关表单项
-      var isCommon = (currentCategory === '常用');
-      var isNav = (currentCategory === '导航');
-      var isFriendOrBlog = (currentCategory === '朋友圈' || currentCategory === '优质博客');
-
-      $('#input-icon-group').toggle(isCommon);
-      $('#input-desc-group').toggle(isFriendOrBlog);
-      $('#input-class-group').toggle(isNav);
-      $('#input-border-group').toggle(currentCategory === '优质博客');
-      $('#input-rel-group').toggle(isCommon);
-
+      updateFormFields();
       renderList();
       return false;
+    });
+
+    // 删除分类
+    $('#category-tabs').on('click', '.delete-cat-btn', function(e) {
+      e.stopPropagation();
+      var cat = $(this).data('cat');
+      if (!confirm('确定删除分类「' + cat + '」？')) return;
+      delete linksData[cat];
+      if (currentCategory === cat) {
+        currentCategory = getFirstCategory();
+      }
+      saveData();
+      renderTabs();
+      renderList();
+      updatePreview();
+    });
+
+    // 添加分类
+    $('#btn-add-category').click(function() {
+      var name = $('#new-category-name').val().trim();
+      if (!name) {
+        alert('请输入分类名称');
+        return;
+      }
+      if (linksData[name]) {
+        alert('分类「' + name + '」已存在');
+        return;
+      }
+      linksData[name] = [];
+      currentCategory = name;
+      saveData();
+      renderTabs();
+      renderList();
+      updatePreview();
+      $('#new-category-name').val('');
     });
 
     // 添加链接
@@ -261,24 +342,19 @@
         return;
       }
 
+      var config = getCatConfig(currentCategory);
       var item = { name: name, url: url };
 
-      if (currentCategory === '常用') {
-        if (icon) item.icon = icon;
-        if (rel) item.rel = rel;
-      } else if (currentCategory === '导航') {
-        item.class = cls;
-      } else if (currentCategory === '朋友圈' || currentCategory === '优质博客') {
-        if (desc) item.desc = desc;
-        if (currentCategory === '优质博客' && border) item.border = border;
-      }
+      if (config.showIcon && icon) item.icon = icon;
+      if (config.showRel && rel) item.rel = rel;
+      if (config.showDesc && desc) item.desc = desc;
+      if (config.showClass) item.class = cls;
+      if (config.showBorder && border) item.border = border;
 
       linksData[currentCategory].push(item);
       saveData();
       renderList();
       updatePreview();
-
-      // 清空表单
       $('#add-form')[0].reset();
     });
 
@@ -287,6 +363,7 @@
       var $item = $(this).closest('.link-item');
       var index = $item.data('index');
       var item = linksData[currentCategory][index];
+      var config = getCatConfig(currentCategory);
 
       var newName = prompt('修改名称', item.name);
       if (newName === null) return;
@@ -296,7 +373,7 @@
       item.name = newName.trim() || item.name;
       item.url = newUrl.trim() || item.url;
 
-      if (currentCategory === '朋友圈' || currentCategory === '优质博客') {
+      if (config.showDesc) {
         var newDesc = prompt('修改描述', item.desc || '');
         if (newDesc !== null) item.desc = newDesc.trim();
       }
