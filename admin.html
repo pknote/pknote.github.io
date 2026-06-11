@@ -50,6 +50,7 @@
         <button class="btn btn-primary" id="btn-copy">复制 JSON</button>
         <button class="btn btn-info" id="btn-download">下载 JSON</button>
         <button class="btn btn-warning" id="btn-reset">重置原始数据</button>
+        <button class="btn btn-danger" id="btn-copy-html">复制 HTML（粘贴到 index.html）</button>
         <span id="save-status" style="margin-left:15px;color:green;display:none;">已保存!</span>
       </div>
     </div>
@@ -428,6 +429,51 @@
       a.download = 'links.json';
       a.click();
       URL.revokeObjectURL(url);
+    });
+
+    // 生成 HTML 代码
+    function generateHtml(cat) {
+      var items = linksData[cat];
+      if (!items || !items.length) return '';
+      var html = '  <!-- ' + cat + ' -->\n';
+      html += '  <div class="container">\n';
+      html += '    <div class="ckcard">\n';
+      html += '      <div class="row">\n';
+      html += '        <div class="cardhd c1">≡ ' + cat + ' ≡</div>\n';
+      items.forEach(function(item) {
+        var border = item.border || 'b1';
+        var desc = item.desc || '';
+        var icon = item.icon || '';
+        html += '        <div class="col-xs-6 col-sm-3 col-md-2"><a href="' + item.url + '">';
+        if (icon) {
+          html += '<img src="' + icon + '">';
+        }
+        html += '<div class="card-title ' + border + '"><div class="tit">' + item.name + '</div><p>' + desc + '</p></div></a></div>\n';
+      });
+      html += '      </div>\n';
+      html += '    </div>\n';
+      html += '  </div>\n';
+      return html;
+    }
+
+    // 复制 HTML
+    $('#btn-copy-html').click(function() {
+      if (currentCategory === '神秘代码') {
+        alert('神秘代码不需要生成 HTML');
+        return;
+      }
+      var html = generateHtml(currentCategory);
+      if (!html) {
+        alert('当前分类没有内容');
+        return;
+      }
+      navigator.clipboard.writeText(html).then(function() {
+        var $btn = $('#btn-copy-html');
+        $btn.addClass('copy-success').text('已复制!');
+        setTimeout(function() {
+          $btn.removeClass('copy-success').text('复制 HTML（粘贴到 index.html）');
+        }, 2000);
+      });
     });
 
     // 重置
