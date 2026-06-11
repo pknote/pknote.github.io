@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <base target="_blank">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>胖氪导航 - 管理后台</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/navi.css" rel="stylesheet">
+  <style>
+    body{padding:20px;background:#f5f5f5;}
+    .panel{border-radius:8px;margin-bottom:20px;}
+    .nav-tabs{margin-bottom:15px;}
+    .link-item{padding:10px;border-bottom:1px solid #eee;display:flex;align-items:center;gap:10px;}
+    .link-item:hover{background:#f9f9f9;}
+    .link-item img{width:18px;height:18px;}
+    .link-name{flex:0 0 120px;font-weight:bold;}
+    .link-url{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#666;}
+    .link-desc{flex:0 0 200px;color:#999;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+    .link-actions{flex:0 0 100px;text-align:right;}
+    .form-inline{margin-bottom:15px;}
+    .json-output{background:#1a1a2e;color:#23d186;font-family:Consolas,Monaco,monospace;font-size:13px;padding:15px;border-radius:8px;max-height:400px;overflow:auto;white-space:pre-wrap;word-break:break-all;}
+    .copy-success{background:#23d186!important;}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2><span class="c2">≡</span> 胖氪导航管理后台</h2>
+      </div>
+    </div>
+
+    <!-- 工具栏 -->
+    <div class="row" style="margin-bottom:20px;">
+      <div class="col-md-12">
+        <button class="btn btn-success" id="btn-save">保存到本地</button>
+        <button class="btn btn-primary" id="btn-copy">复制 JSON</button>
+        <button class="btn btn-info" id="btn-download">下载 JSON</button>
+        <button class="btn btn-warning" id="btn-reset">重置原始数据</button>
+        <span id="save-status" style="margin-left:15px;color:green;display:none;">已保存!</span>
+      </div>
+    </div>
+
+    <!-- 分类切换 -->
+    <ul class="nav nav-tabs" id="category-tabs">
+      <li class="active"><a href="#" data-category="常用">常用链接</a></li>
+      <li><a href="#" data-category="导航">导航按钮</a></li>
+      <li><a href="#" data-category="神秘代码">神秘代码</a></li>
+      <li><a href="#" data-category="朋友圈">朋友圈</a></li>
+      <li><a href="#" data-category="优质博客">优质博客</a></li>
+    </ul>
+
+    <!-- 添加表单 -->
+    <div class="panel panel-default">
+      <div class="panel-heading">添加新链接</div>
+      <div class="panel-body">
+        <form class="form-inline" id="add-form">
+          <div class="form-group">
+            <label>名称</label>
+            <input type="text" class="form-control" id="input-name" placeholder="网站名称" required>
+          </div>
+          <div class="form-group">
+            <label>链接</label>
+            <input type="url" class="form-control" id="input-url" placeholder="https://" required>
+          </div>
+          <div class="form-group" id="input-icon-group">
+            <label>图标</label>
+            <input type="text" class="form-control" id="input-icon" placeholder="/ico/xxx.png">
+          </div>
+          <div class="form-group" id="input-desc-group" style="display:none;">
+            <label>描述</label>
+            <input type="text" class="form-control" id="input-desc" placeholder="描述文字">
+          </div>
+          <div class="form-group" id="input-class-group" style="display:none;">
+            <label>样式</label>
+            <select class="form-control" id="input-class">
+              <option value="bg1">bg1 - 红色</option>
+              <option value="bg2">bg2 - 蓝色</option>
+              <option value="bg3">bg3 - 紫色</option>
+              <option value="bg4">bg4 - 绿色</option>
+              <option value="bg5">bg5 - 浅绿</option>
+              <option value="bg6">bg6 - 黄色</option>
+            </select>
+          </div>
+          <div class="form-group" id="input-border-group" style="display:none;">
+            <label>边框</label>
+            <select class="form-control" id="input-border">
+              <option value="b1">b1 - 红色</option>
+              <option value="b6">b6 - 黄色</option>
+            </select>
+          </div>
+          <div class="form-group" id="input-rel-group" style="display:none;">
+            <label>rel</label>
+            <input type="text" class="form-control" id="input-rel" placeholder="external nofollow">
+          </div>
+          <button type="submit" class="btn btn-success">添加</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- 神秘代码编辑 -->
+    <div class="panel panel-default" id="secret-code-panel" style="display:none;">
+      <div class="panel-heading">神秘代码设置</div>
+      <div class="panel-body">
+        <form class="form-inline" id="secret-form">
+          <div class="form-group">
+            <label>标签</label>
+            <input type="text" class="form-control" id="secret-title" placeholder="[MAS]" style="width:80px;">
+          </div>
+          <div class="form-group" style="flex:1;">
+            <label>代码</label>
+            <input type="text" class="form-control" id="secret-code" placeholder="代码内容" style="width:100%;">
+          </div>
+          <button type="submit" class="btn btn-primary">更新</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- 链接列表 -->
+    <div class="panel panel-default">
+      <div class="panel-heading" id="list-heading">链接列表</div>
+      <div class="panel-body" id="link-list"></div>
+    </div>
+
+    <!-- JSON 预览 -->
+    <div class="panel panel-default">
+      <div class="panel-heading">JSON 预览</div>
+      <div class="panel-body">
+        <div class="json-output" id="json-preview"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+  <script>
+  $(function() {
+    var STORAGE_KEY = 'pknav_links_data';
+    var currentCategory = '常用';
+    var linksData = null;
+
+    // 加载数据
+    function loadData() {
+      var saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        try {
+          return JSON.parse(saved);
+        } catch(e) {}
+      }
+      // 从 links.json 加载
+      $.getJSON('/links.json', function(data) {
+        linksData = data;
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        renderList();
+        updatePreview();
+      }).fail(function() {
+        alert('加载 links.json 失败');
+      });
+    }
+
+    // 保存数据
+    function saveData() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(linksData));
+      $('#save-status').show().fadeOut(2000);
+    }
+
+    // 渲染列表
+    function renderList() {
+      var $list = $('#link-list');
+      var $heading = $('#list-heading');
+      $list.empty();
+
+      if (currentCategory === '神秘代码') {
+        $('#secret-code-panel').show();
+        $('#secret-title').val(linksData['神秘代码'].title);
+        $('#secret-code').val(linksData['神秘代码'].code);
+        return;
+      } else {
+        $('#secret-code-panel').hide();
+      }
+
+      var items = linksData[currentCategory];
+      if (!items || !items.length) {
+        $list.html('<p class="text-muted">暂无数据</p>');
+        return;
+      }
+
+      var showIcon = (currentCategory === '常用');
+      var showDesc = (currentCategory === '朋友圈' || currentCategory === '优质博客');
+      var showClass = (currentCategory === '导航');
+      var showBorder = (currentCategory === '优质博客');
+
+      $heading.text(currentCategory + ' - 共 ' + items.length + ' 条');
+
+      var html = '';
+      for (var i = 0; i < items.length; i++) {
+        var item = items[i];
+        html += '<div class="link-item" data-index="' + i + '">';
+        if (showIcon && item.icon) {
+          html += '<img src="' + item.icon + '" onerror="this.src=\'/favicon.ico\'">';
+        }
+        html += '<span class="link-name">' + item.name + '</span>';
+        html += '<span class="link-url" title="' + item.url + '">' + item.url + '</span>';
+        if (showDesc && item.desc) {
+          html += '<span class="link-desc" title="' + item.desc + '">' + item.desc + '</span>';
+        }
+        if (showClass && item.class) {
+          html += '<span class="label label-default">' + item.class + '</span>';
+        }
+        if (showBorder && item.border) {
+          html += '<span class="label label-default">' + item.border + '</span>';
+        }
+        html += '<span class="link-actions">';
+        html += '<button class="btn btn-xs btn-primary edit-btn">编辑</button> ';
+        html += '<button class="btn btn-xs btn-danger delete-btn">删除</button>';
+        html += '</span></div>';
+      }
+      $list.html(html);
+    }
+
+    // 更新 JSON 预览
+    function updatePreview() {
+      $('#json-preview').text(JSON.stringify(linksData, null, 2));
+    }
+
+    // 切换分类
+    $('#category-tabs a').click(function(e) {
+      e.preventDefault();
+      $('#category-tabs li').removeClass('active');
+      $(this).parent().addClass('active');
+      currentCategory = $(this).data('category');
+
+      // 显示/隐藏相关表单项
+      var isCommon = (currentCategory === '常用');
+      var isNav = (currentCategory === '导航');
+      var isFriendOrBlog = (currentCategory === '朋友圈' || currentCategory === '优质博客');
+
+      $('#input-icon-group').toggle(isCommon);
+      $('#input-desc-group').toggle(isFriendOrBlog);
+      $('#input-class-group').toggle(isNav);
+      $('#input-border-group').toggle(currentCategory === '优质博客');
+      $('#input-rel-group').toggle(isCommon);
+
+      renderList();
+      return false;
+    });
+
+    // 添加链接
+    $('#add-form').submit(function(e) {
+      e.preventDefault();
+      var name = $('#input-name').val().trim();
+      var url = $('#input-url').val().trim();
+      var icon = $('#input-icon').val().trim();
+      var desc = $('#input-desc').val().trim();
+      var cls = $('#input-class').val();
+      var border = $('#input-border').val();
+      var rel = $('#input-rel').val().trim();
+
+      if (!name || !url) {
+        alert('名称和链接不能为空');
+        return;
+      }
+
+      var item = { name: name, url: url };
+
+      if (currentCategory === '常用') {
+        if (icon) item.icon = icon;
+        if (rel) item.rel = rel;
+      } else if (currentCategory === '导航') {
+        item.class = cls;
+      } else if (currentCategory === '朋友圈' || currentCategory === '优质博客') {
+        if (desc) item.desc = desc;
+        if (currentCategory === '优质博客' && border) item.border = border;
+      }
+
+      linksData[currentCategory].push(item);
+      saveData();
+      renderList();
+      updatePreview();
+
+      // 清空表单
+      $('#add-form')[0].reset();
+    });
+
+    // 编辑/删除按钮事件
+    $('#link-list').on('click', '.edit-btn', function() {
+      var $item = $(this).closest('.link-item');
+      var index = $item.data('index');
+      var item = linksData[currentCategory][index];
+
+      var newName = prompt('修改名称', item.name);
+      if (newName === null) return;
+      var newUrl = prompt('修改链接', item.url);
+      if (newUrl === null) return;
+
+      item.name = newName.trim() || item.name;
+      item.url = newUrl.trim() || item.url;
+
+      if (currentCategory === '朋友圈' || currentCategory === '优质博客') {
+        var newDesc = prompt('修改描述', item.desc || '');
+        if (newDesc !== null) item.desc = newDesc.trim();
+      }
+
+      saveData();
+      renderList();
+      updatePreview();
+    });
+
+    $('#link-list').on('click', '.delete-btn', function() {
+      if (!confirm('确定删除？')) return;
+      var $item = $(this).closest('.link-item');
+      var index = $item.data('index');
+      linksData[currentCategory].splice(index, 1);
+      saveData();
+      renderList();
+      updatePreview();
+    });
+
+    // 神秘代码更新
+    $('#secret-form').submit(function(e) {
+      e.preventDefault();
+      linksData['神秘代码'].title = $('#secret-title').val().trim();
+      linksData['神秘代码'].code = $('#secret-code').val().trim();
+      saveData();
+      updatePreview();
+      alert('已更新');
+    });
+
+    // 保存按钮
+    $('#btn-save').click(function() {
+      saveData();
+    });
+
+    // 复制 JSON
+    $('#btn-copy').click(function() {
+      navigator.clipboard.writeText(JSON.stringify(linksData, null, 2)).then(function() {
+        var $btn = $('#btn-copy');
+        $btn.addClass('copy-success').text('已复制!');
+        setTimeout(function() {
+          $btn.removeClass('copy-success').text('复制 JSON');
+        }, 2000);
+      });
+    });
+
+    // 下载 JSON
+    $('#btn-download').click(function() {
+      var blob = new Blob([JSON.stringify(linksData, null, 2)], { type: 'application/json' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = 'links.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    // 重置
+    $('#btn-reset').click(function() {
+      if (!confirm('确定重置？本地所有修改将丢失！')) return;
+      localStorage.removeItem(STORAGE_KEY);
+      loadData();
+    });
+
+    // 初始化
+    loadData();
+  });
+  </script>
+</body>
+</html>
