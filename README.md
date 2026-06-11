@@ -18,11 +18,11 @@
 ```
 D:\pknav\
 ├── index.html      # 主页面（胖氪导航）
-├── index1.html     # 重装系统
-├── index2.html     # 虚拟黑裙
-├── index3.html     # 软件工具
-├── index4.html     # 收藏分享
-├── index5.html     # 优秀博客
+├── nav1.html       # 重装系统
+├── nav2.html       # 虚拟黑裙
+├── nav3.html       # 软件工具
+├── nav4.html       # 收藏分享
+├── nav5.html       # 优秀博客
 ├── admin.html      # 管理后台（生成 HTML 代码）
 ├── navi.js         # 交互脚本
 ├── navi.css        # 样式文件
@@ -66,11 +66,11 @@ D:\pknav\
 | 页面 | 说明 |
 |------|------|
 | index.html | 胖氪导航 - 主页面 |
-| index1.html | 重装系统 |
-| index2.html | 虚拟黑裙 |
-| index3.html | 软件工具 |
-| index4.html | 收藏分享 |
-| index5.html | 优秀博客 |
+| nav1.html | 重装系统 |
+| nav2.html | 虚拟黑裙 |
+| nav3.html | 软件工具 |
+| nav4.html | 收藏分享 |
+| nav5.html | 优秀博客 |
 
 ## 部署信息
 
