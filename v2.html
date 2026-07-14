@@ -173,30 +173,5 @@
   <!-- jQuery CDN -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
   <script src="/navi.js"></script>
-  <script>
-    $(function() {
-      $('.copy-btn').click(function() {
-        var targetId = $(this).data('target');
-        var code = $('#' + targetId).text();
-        navigator.clipboard.writeText(code).then(function() {
-          $('.copy-btn[data-target="' + targetId + '"]').text('已复制').addClass('copied');
-          setTimeout(function() {
-            $('.copy-btn[data-target="' + targetId + '"]').text('复制').removeClass('copied');
-          }, 2000);
-        }).catch(function() {
-          var textarea = document.createElement('textarea');
-          textarea.value = code;
-          document.body.appendChild(textarea);
-          textarea.select();
-          document.execCommand('copy');
-          document.body.removeChild(textarea);
-          $('.copy-btn[data-target="' + targetId + '"]').text('已复制').addClass('copied');
-          setTimeout(function() {
-            $('.copy-btn[data-target="' + targetId + '"]').text('复制').removeClass('copied');
-          }, 2000);
-        });
-      });
-    });
-  </script>
 </body>
 </html>

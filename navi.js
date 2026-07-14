@@ -13,19 +13,21 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 
-// 神秘代码复制功能
+// 通用复制功能
 $(function() {
-  $('#copy-secret-btn').on('click', function() {
+  $('.copy-btn').on('click', function() {
     var $btn = $(this);
-    var secretCode = $('#secret-text').text();
-    navigator.clipboard.writeText(secretCode).then(function() {
+    var targetId = $btn.data('target');
+    var code = $('#' + targetId).text();
+    if (!code) return;
+    navigator.clipboard.writeText(code).then(function() {
       $btn.text('已复制').addClass('copied');
       setTimeout(function() {
         $btn.text('复制').removeClass('copied');
       }, 2000);
     }).catch(function() {
       var textarea = document.createElement('textarea');
-      textarea.value = secretCode;
+      textarea.value = code;
       document.body.appendChild(textarea);
       textarea.select();
       document.execCommand('copy');
