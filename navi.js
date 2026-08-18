@@ -2,7 +2,7 @@
 jQuery(document).ready(function(){function c(){document.title=document[a]?"（╯︿╰）崩溃啦！~《"+d+"》":d}var a,b,d=document.title;"undefined"!=typeof document.hidden?(a="hidden",b="visibilitychange"):"undefined"!=typeof document.mozHidden?(a="mozHidden",b="mozvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(a="webkitHidden",b="webkitvisibilitychange");"undefined"==typeof document.addEventListener&&"undefined"==typeof document[a]||document.addEventListener(b,c,!1)});
 
 // 主页判断（已禁用，方便调试）
-// var myurl = document.domain;if (myurl != "gotoo.asia") {window.location.href = "https://gotoo.asia/";}
+var myurl = document.domain;if (myurl != "gotoo.asia") {window.location.href = "https://pknote.github.io/";}
 
 // 统计代码
 
